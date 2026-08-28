@@ -48,6 +48,7 @@
             color: #d0e4f8;
             line-height: 1.6;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         .container {
@@ -64,6 +65,115 @@
         a:hover {
             color: #7acbff;
             text-shadow: 0 0 25px rgba(74, 184, 255, 0.2);
+        }
+
+        /* ===== ANIMATED PARTICLES BACKGROUND ===== */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(74, 184, 255, 0.15), transparent 70%);
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
+        }
+
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0.5);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% {
+                transform: translateY(-10vh) translateX(100px) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* ===== ANIMATED GLOW ORB ===== */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            pointer-events: none;
+            z-index: 0;
+            animation: orbFloat 8s ease-in-out infinite alternate;
+        }
+
+        .glow-orb.orb1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(13, 110, 253, 0.08);
+            top: -100px;
+            right: -100px;
+        }
+
+        .glow-orb.orb2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(74, 184, 255, 0.06);
+            bottom: -50px;
+            left: -50px;
+            animation-delay: 4s;
+        }
+
+        @keyframes orbFloat {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(50px, 50px) scale(1.2); }
+        }
+
+        /* ===== FADE-IN ANIMATIONS ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .fade-in-delay-1 { animation-delay: 0.1s; }
+        .fade-in-delay-2 { animation-delay: 0.2s; }
+        .fade-in-delay-3 { animation-delay: 0.3s; }
+        .fade-in-delay-4 { animation-delay: 0.4s; }
+        .fade-in-delay-5 { animation-delay: 0.5s; }
+        .fade-in-delay-6 { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== PULSE ANIMATION ===== */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        /* ===== SHIMMER ANIMATION ===== */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .shimmer-text {
+            background: linear-gradient(90deg, #0d6efd, #4ab8ff, #0d6efd);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmer 3s linear infinite;
         }
 
         .skip {
@@ -89,6 +199,18 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.6s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
 
         .header-row {
@@ -131,6 +253,21 @@
             font-weight: 500;
             font-size: 15px;
             transition: 0.3s;
+            position: relative;
+        }
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #0d6efd, #4ab8ff);
+            transition: width 0.3s ease;
+        }
+        .main-nav a:hover::after,
+        .main-nav a.active::after {
+            width: 100%;
         }
         .main-nav a:hover {
             color: #4ab8ff;
@@ -138,7 +275,6 @@
         }
         .main-nav a.active {
             color: #4ab8ff;
-            border-bottom: 2px solid #4ab8ff;
         }
 
         .header-actions {
@@ -154,6 +290,7 @@
             font-weight: 700;
             color: #4ab8ff;
             font-size: 13px;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         /* ===== BUTTONS ===== */
@@ -167,6 +304,8 @@
             cursor: pointer;
             font-size: 15px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
 
         .btn.primary {
@@ -177,8 +316,24 @@
             animation: gradientShift 3s ease infinite;
         }
         .btn.primary:hover {
-            transform: scale(1.04);
-            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.35);
+            transform: scale(1.04) translateY(-2px);
+            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.4);
+        }
+
+        .btn.primary::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+            animation: btnShine 3s ease-in-out infinite;
+        }
+
+        @keyframes btnShine {
+            0%, 100% { transform: translate(-30%, -30%) scale(0.5); opacity: 0; }
+            50% { transform: translate(30%, 30%) scale(1.2); opacity: 1; }
         }
 
         @keyframes gradientShift {
@@ -196,6 +351,7 @@
             border-color: #4ab8ff;
             color: #4ab8ff;
             box-shadow: 0 0 30px rgba(74, 184, 255, 0.05);
+            transform: translateY(-2px);
         }
 
         .btn.large {
@@ -210,26 +366,6 @@
             border-radius: 0 0 40px 40px;
             position: relative;
             overflow: hidden;
-        }
-        .page-hero::before {
-            content: '';
-            position: absolute;
-            top: -30%;
-            right: -10%;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(13, 110, 253, 0.06), transparent 70%);
-            pointer-events: none;
-        }
-        .page-hero::after {
-            content: '';
-            position: absolute;
-            bottom: -20%;
-            left: -5%;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(74, 184, 255, 0.04), transparent 70%);
-            pointer-events: none;
         }
 
         .hero-grid {
@@ -254,12 +390,6 @@
             margin-bottom: 12px;
         }
 
-        .gradient-text {
-            background: linear-gradient(135deg, #0d6efd, #4ab8ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
         .page-hero h1 {
             font-size: 44px;
             font-weight: 800;
@@ -272,6 +402,7 @@
             background: linear-gradient(135deg, #0d6efd, #4ab8ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         .page-hero p {
@@ -287,6 +418,7 @@
             flex-wrap: wrap;
         }
 
+        /* ===== STATS CARD ===== */
         .stats-card {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -297,6 +429,12 @@
             border-radius: 20px;
             padding: 30px 24px;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+        }
+        .stats-card:hover {
+            border-color: #4ab8ff;
+            transform: translateY(-4px);
+            box-shadow: 0 12px 60px rgba(74, 184, 255, 0.05);
         }
         .stats-card div {
             text-align: center;
@@ -333,13 +471,13 @@
             border: 1px solid rgba(26, 65, 124, 0.4);
             border-radius: 16px;
             padding: 24px;
-            transition: 0.3s;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
         .trust-card:hover {
             border-color: #4ab8ff;
-            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.05);
-            transform: translateY(-2px);
+            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.08);
+            transform: translateY(-6px) scale(1.02);
         }
         .trust-card .trust-icon {
             display: inline-block;
@@ -390,13 +528,13 @@
             border: 1px solid rgba(26, 65, 124, 0.4);
             border-radius: 16px;
             overflow: hidden;
-            transition: 0.3s;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
         .content-card:hover {
             border-color: #4ab8ff;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.05);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 60px rgba(74, 184, 255, 0.08);
         }
         .content-card a { display: block; text-decoration: none; color: inherit; }
         .content-card .card-media {
@@ -404,6 +542,7 @@
             padding-top: 56.25%;
             position: relative;
             background: #0f2040;
+            overflow: hidden;
         }
         .content-card .card-media img {
             position: absolute;
@@ -412,6 +551,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .content-card:hover .card-media img {
+            transform: scale(1.1);
         }
         .content-card .card-copy { padding: 16px 20px 20px; }
         .content-card .card-copy span {
@@ -430,6 +573,7 @@
             font-size: 14px;
         }
 
+        /* ===== REVIEWS ===== */
         .review-preview {
             display: flex;
             flex-direction: column;
@@ -441,14 +585,21 @@
             border: 1px solid rgba(26, 65, 124, 0.4);
             border-radius: 12px;
             padding: 18px 22px;
-            transition: 0.3s;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
-        .review-preview article:hover { border-color: #4ab8ff; }
+        .review-preview article:hover {
+            border-color: #4ab8ff;
+            transform: translateX(8px);
+            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.05);
+        }
         .review-preview article strong { color: #4ab8ff; }
         .review-preview article p {
             color: #d0e4f8;
             margin-top: 6px;
+        }
+        .review-preview article .stars {
+            color: #ffd700;
         }
 
         /* ===== FOOTER CTA ===== */
@@ -516,7 +667,10 @@
             padding: 3px 0;
             transition: 0.3s;
         }
-        .footer-grid a:hover { color: #4ab8ff; }
+        .footer-grid a:hover { 
+            color: #4ab8ff; 
+            transform: translateX(4px);
+        }
 
         .footer-bottom {
             border-top: 1px solid rgba(26, 65, 124, 0.3);
@@ -558,6 +712,7 @@
         .mobile-bar a:last-child {
             background: linear-gradient(135deg, #0d6efd, #4ab8ff);
             color: #ffffff;
+            animation: pulse 2s ease-in-out infinite;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -589,6 +744,7 @@
             .site-footer { padding-bottom: 80px; }
             .hero-grid { grid-template-columns: 1fr; }
             .footer-cta .container { flex-direction: column; text-align: center; }
+            .glow-orb { display: none; }
         }
 
         @media (max-width: 480px) {
@@ -601,12 +757,19 @@
 </head>
 <body>
 
+    <!-- ===== PARTICLES BACKGROUND ===== -->
+    <div class="particles" id="particles"></div>
+
+    <!-- ===== GLOW ORBS ===== -->
+    <div class="glow-orb orb1"></div>
+    <div class="glow-orb orb2"></div>
+
     <a class="skip" href="#content">К содержанию</a>
 
     <!-- ===== AGE GATE ===== -->
     <div class="age-gate" data-age-gate style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,22,40,0.97);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;z-index:1000;">
-        <div class="age-gate-card" style="background:rgba(17,29,53,0.8);backdrop-filter:blur(16px);border:1px solid rgba(26,48,80,0.4);border-radius:24px;padding:40px;max-width:480px;text-align:center;box-shadow:0 12px 60px rgba(0,0,0,0.4);">
-            <span style="display:inline-block;background:rgba(26,48,80,0.5);padding:8px 24px;border-radius:40px;font-size:24px;font-weight:800;color:#4ab8ff;">18+</span>
+        <div class="age-gate-card" style="background:rgba(17,29,53,0.8);backdrop-filter:blur(16px);border:1px solid rgba(26,48,80,0.4);border-radius:24px;padding:40px;max-width:480px;text-align:center;box-shadow:0 12px 60px rgba(0,0,0,0.4);animation:fadeInUp 0.6s ease;">
+            <span style="display:inline-block;background:rgba(26,48,80,0.5);padding:8px 24px;border-radius:40px;font-size:24px;font-weight:800;color:#4ab8ff;animation:pulse 2s ease-in-out infinite;">18+</span>
             <p class="eyebrow" style="margin-top:12px;">Подтверждение возраста</p>
             <h2 style="color:#ffffff;font-size:26px;margin:16px 0 8px;">Вам уже исполнилось 18 лет?</h2>
             <p style="color:#8aaac8;margin-bottom:24px;">Портал содержит информацию об азартных играх и предназначен только для совершеннолетних. Игра не является способом заработка.</p>
@@ -618,7 +781,7 @@
         </div>
     </div>
 
-    <!-- ===== HEADER (sticky) ===== -->
+    <!-- ===== HEADER ===== -->
     <header class="site-header">
         <div class="container header-row">
             <a class="brand" href="index.html">
@@ -660,30 +823,30 @@
         <!-- ===== HERO ===== -->
         <section class="page-hero">
             <div class="container hero-grid">
-                <div>
+                <div class="fade-in fade-in-delay-1">
                     <span class="eyebrow">🔥 Мега-предложение</span>
                     <h1>
                         ЗАБЕРИ <span class="big-bonus">500%</span><br>
-                        + <span class="big-bonus">300</span> ФРИСПИНОВ
+                        + <span class="big-bonus shimmer-text">300</span> ФРИСПИНОВ
                     </h1>
                     <p>Первый депозит увеличивается в 5 раз! 300 бесплатных вращений на топовых слотах. Мгновенный вывод средств. Предложение ограничено!</p>
                     <div class="hero-buttons">
-                        <a class="btn primary large" href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">Забрать бонус</a>
+                        <a class="btn primary large pulse" href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">Забрать бонус</a>
                         <a class="btn ghost large" href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">Играть сейчас</a>
                     </div>
                     <div style="margin-top:20px;display:flex;gap:20px;flex-wrap:wrap;font-size:14px;color:#8aaac8;">
-                        <span><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> 3000+ игр</span>
-                        <span><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Вывод до 5 мин</span>
-                        <span><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Лицензия Curacao</span>
+                        <span class="fade-in fade-in-delay-3"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> 3000+ игр</span>
+                        <span class="fade-in fade-in-delay-4"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Вывод до 5 мин</span>
+                        <span class="fade-in fade-in-delay-5"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Лицензия Curacao</span>
                     </div>
                 </div>
-                <div class="stats-card">
+                <div class="stats-card fade-in fade-in-delay-2">
                     <div>
-                        <strong>5 847</strong>
+                        <strong data-count="5847">0</strong>
                         <span>игроков сегодня</span>
                     </div>
                     <div>
-                        <strong>1 234 567 ₽</strong>
+                        <strong data-count="1234567">0</strong>
                         <span>выплачено за неделю</span>
                     </div>
                     <div>
@@ -702,22 +865,22 @@
         <section class="section">
             <div class="container">
                 <div class="trust-grid">
-                    <div class="trust-card">
+                    <div class="trust-card fade-in fade-in-delay-1">
                         <span class="trust-icon">💰</span>
                         <strong>500% на первый депозит</strong>
                         <span>Пополните счёт и получите прибавку в 5 раз</span>
                     </div>
-                    <div class="trust-card">
+                    <div class="trust-card fade-in fade-in-delay-2">
                         <span class="trust-icon">🎰</span>
                         <strong>300 бесплатных вращений</strong>
                         <span>Играйте в популярные слоты без риска</span>
                     </div>
-                    <div class="trust-card">
+                    <div class="trust-card fade-in fade-in-delay-3">
                         <span class="trust-icon">⚡</span>
                         <strong>Вывод за 5 минут</strong>
                         <span>Быстрые транзакции без лишних задержек</span>
                     </div>
-                    <div class="trust-card">
+                    <div class="trust-card fade-in fade-in-delay-4">
                         <span class="trust-icon">🏆</span>
                         <strong>Турниры на 5 000 000 ₽</strong>
                         <span>Соревнуйтесь и выигрывайте крупные призы</span>
@@ -729,29 +892,29 @@
         <!-- ===== WHY US ===== -->
         <section class="section soft">
             <div class="container">
-                <div class="section-head">
+                <div class="section-head fade-in">
                     <div>
                         <span class="eyebrow">Почему выбирают нас</span>
                         <h2>Играть в Lucky Bear — выгодно</h2>
                     </div>
                 </div>
                 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;">
-                    <div style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;text-align:center;">
+                    <div class="fade-in fade-in-delay-1" style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;text-align:center;transition:0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
                         <div style="font-size:36px;color:#4ab8ff;">🎁</div>
                         <strong style="color:#ffffff;font-size:18px;display:block;margin:8px 0;">Бонус до 500%</strong>
                         <span style="color:#8aaac8;font-size:14px;">Увеличьте свой депозит до 5 раз</span>
                     </div>
-                    <div style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;text-align:center;">
+                    <div class="fade-in fade-in-delay-2" style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;text-align:center;transition:0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
                         <div style="font-size:36px;color:#4ab8ff;">🎰</div>
                         <strong style="color:#ffffff;font-size:18px;display:block;margin:8px 0;">3000+ игр</strong>
                         <span style="color:#8aaac8;font-size:14px;">Слоты, live-казино, новинки от топ-провайдеров</span>
                     </div>
-                    <div style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;text-align:center;">
+                    <div class="fade-in fade-in-delay-3" style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;text-align:center;transition:0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
                         <div style="font-size:36px;color:#4ab8ff;">⚡</div>
                         <strong style="color:#ffffff;font-size:18px;display:block;margin:8px 0;">Вывод за 5 минут</strong>
                         <span style="color:#8aaac8;font-size:14px;">Мгновенные выплаты на карту или кошелёк</span>
                     </div>
-                    <div style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;text-align:center;">
+                    <div class="fade-in fade-in-delay-4" style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;text-align:center;transition:0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
                         <div style="font-size:36px;color:#4ab8ff;">👑</div>
                         <strong style="color:#ffffff;font-size:18px;display:block;margin:8px 0;">VIP до 70%</strong>
                         <span style="color:#8aaac8;font-size:14px;">Кешбэк до 70% для постоянных игроков</span>
@@ -763,7 +926,7 @@
         <!-- ===== TOP SLOTS ===== -->
         <section class="section">
             <div class="container">
-                <div class="section-head">
+                <div class="section-head fade-in">
                     <div>
                         <span class="eyebrow">Топ игры</span>
                         <h2>Лучшие слоты прямо сейчас</h2>
@@ -771,10 +934,10 @@
                     <a href="games.html">Все игры →</a>
                 </div>
                 <div class="card-grid card-grid-slots">
-                    <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/anubis-wrath.jpg" alt="Anubis Wrath" loading="lazy"></div><div class="card-copy"><span>Pragmatic Play</span><h2>Anubis Wrath</h2></div></a></div>
-                    <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/crazy-time.jpg" alt="Crazy Time" loading="lazy"></div><div class="card-copy"><span>Evolution Gaming</span><h2>Crazy Time</h2></div></a></div>
-                    <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/aviamasters-2.jpg" alt="Aviamasters 2" loading="lazy"></div><div class="card-copy"><span>Pragmatic Play</span><h2>Aviamasters 2</h2></div></a></div>
-                    <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/speed-winner.jpg" alt="Speed Winner" loading="lazy"></div><div class="card-copy"><span>Evolution Gaming</span><h2>Speed Winner</h2></div></a></div>
+                    <div class="content-card fade-in fade-in-delay-1"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/anubis-wrath.jpg" alt="Anubis Wrath" loading="lazy"></div><div class="card-copy"><span>Pragmatic Play</span><h2>Anubis Wrath</h2></div></a></div>
+                    <div class="content-card fade-in fade-in-delay-2"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/crazy-time.jpg" alt="Crazy Time" loading="lazy"></div><div class="card-copy"><span>Evolution Gaming</span><h2>Crazy Time</h2></div></a></div>
+                    <div class="content-card fade-in fade-in-delay-3"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/aviamasters-2.jpg" alt="Aviamasters 2" loading="lazy"></div><div class="card-copy"><span>Pragmatic Play</span><h2>Aviamasters 2</h2></div></a></div>
+                    <div class="content-card fade-in fade-in-delay-4"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/speed-winner.jpg" alt="Speed Winner" loading="lazy"></div><div class="card-copy"><span>Evolution Gaming</span><h2>Speed Winner</h2></div></a></div>
                 </div>
             </div>
         </section>
@@ -782,7 +945,7 @@
         <!-- ===== REVIEWS ===== -->
         <section class="section soft">
             <div class="container">
-                <div class="section-head">
+                <div class="section-head fade-in">
                     <div>
                         <span class="eyebrow">Отзывы</span>
                         <h2>Что говорят игроки</h2>
@@ -790,16 +953,16 @@
                     <a href="reviews.html">Все отзывы →</a>
                 </div>
                 <div class="review-preview">
-                    <article>
-                        <strong>Алексей М.</strong> ⭐⭐⭐⭐⭐
+                    <article class="fade-in fade-in-delay-1">
+                        <strong>Алексей М.</strong> <span class="stars">★★★★★</span>
                         <p>"Получил 500% бонус, отыграл за 2 часа и вывел 250 000 ₽ за 10 минут! Лучшее казино!"</p>
                     </article>
-                    <article>
-                        <strong>Екатерина С.</strong> ⭐⭐⭐⭐⭐
+                    <article class="fade-in fade-in-delay-2">
+                        <strong>Екатерина С.</strong> <span class="stars">★★★★★</span>
                         <p>"300 фриспинов — это просто космос! Выиграла 180 000 ₽, выплатили мгновенно."</p>
                     </article>
-                    <article>
-                        <strong>Дмитрий К.</strong> ⭐⭐⭐⭐⭐
+                    <article class="fade-in fade-in-delay-3">
+                        <strong>Дмитрий К.</strong> <span class="stars">★★★★★</span>
                         <p>"Играю уже месяц. Вывод за 5 минут, поддержка 24/7. Бонусы просто огромные!"</p>
                     </article>
                 </div>
@@ -811,19 +974,19 @@
     <!-- ===== CTA ===== -->
     <section class="footer-cta">
         <div class="container">
-            <div>
+            <div class="fade-in">
                 <span>🎯 Успей забрать!</span>
                 <h2>500% бонус + 300 фриспинов</h2>
                 <p>Только сегодня — увеличьте свой депозит в 5 раз и получите 300 бесплатных вращений!</p>
             </div>
-            <a class="btn primary large" href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">Забрать бонус</a>
+            <a class="btn primary large pulse fade-in fade-in-delay-2" href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">Забрать бонус</a>
         </div>
     </section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
         <div class="container footer-grid">
-            <div class="footer-brand">
+            <div class="footer-brand fade-in">
                 <div style="display:flex; align-items:center; gap:12px;">
                     <img src="images/menu-logo.png" alt="Lucky Bear Казино" style="height:40px; width:auto;">
                     <span style="font-size:20px; font-weight:800; color:#ffffff;">Lucky Bear</span>
@@ -831,10 +994,10 @@
                 <p>Русскоязычный сайт Lucky Bear Казино для совершеннолетних пользователей стран СНГ. 500% бонус + 300 фриспинов ждут тебя!</p>
                 <div class="footer-trust"><span>HTTPS</span><span>18+</span><span>Лицензия</span></div>
             </div>
-            <div><strong>Информация</strong><a href="about.html">О нас</a><a href="rules.html">Правила</a><a href="faq.html">FAQ</a><a href="contacts.html">Контакты</a></div>
-            <div><strong>Игры</strong><a href="games.html">Слоты</a><a href="games.html">Live-казино</a><a href="games.html">Новые игры</a><a href="providers.html">Провайдеры</a></div>
-            <div><strong>Бонусы</strong><a href="bonus.html">500% бонус</a><a href="bonus.html">300 фриспинов</a><a href="vip.html">VIP-программа</a><a href="tournaments.html">Турниры</a></div>
-            <div><strong>Помощь</strong><a href="payment.html">Пополнение и вывод</a><a href="app.html">Мобильное приложение</a><a href="reviews.html">Отзывы</a><a href="blog.html">Блог</a></div>
+            <div class="fade-in fade-in-delay-1"><strong>Информация</strong><a href="about.html">О нас</a><a href="rules.html">Правила</a><a href="faq.html">FAQ</a><a href="contacts.html">Контакты</a></div>
+            <div class="fade-in fade-in-delay-2"><strong>Игры</strong><a href="games.html">Слоты</a><a href="games.html">Live-казино</a><a href="games.html">Новые игры</a><a href="providers.html">Провайдеры</a></div>
+            <div class="fade-in fade-in-delay-3"><strong>Бонусы</strong><a href="bonus.html">500% бонус</a><a href="bonus.html">300 фриспинов</a><a href="vip.html">VIP-программа</a><a href="tournaments.html">Турниры</a></div>
+            <div class="fade-in fade-in-delay-4"><strong>Помощь</strong><a href="payment.html">Пополнение и вывод</a><a href="app.html">Мобильное приложение</a><a href="reviews.html">Отзывы</a><a href="blog.html">Блог</a></div>
         </div>
         <div class="container footer-bottom">
             <span>© 2026 Lucky Bear Казино. Все права защищены.</span>
@@ -849,6 +1012,53 @@
     </div>
 
     <script>
+        // ===== PARTICLES =====
+        (function createParticles() {
+            const container = document.getElementById('particles');
+            const count = 30;
+            for (let i = 0; i < count; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                const size = 30 + Math.random() * 80;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = 15 + Math.random() * 25 + 's';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                container.appendChild(particle);
+            }
+        })();
+
+        // ===== COUNTER ANIMATION =====
+        (function animateCounters() {
+            const counters = document.querySelectorAll('[data-count]');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const el = entry.target;
+                        const target = parseInt(el.dataset.count);
+                        const duration = 2000;
+                        const start = performance.now();
+                        const format = target > 1000 ? (n) => n.toLocaleString('ru-RU') : (n) => n.toString();
+                        
+                        function updateCounter(time) {
+                            const progress = Math.min((time - start) / duration, 1);
+                            const current = Math.floor(progress * target);
+                            el.textContent = format(current);
+                            if (progress < 1) {
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                el.textContent = format(target);
+                            }
+                        }
+                        requestAnimationFrame(updateCounter);
+                        observer.unobserve(el);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(c => observer.observe(c));
+        })();
+
         // ===== MENU TOGGLE =====
         document.querySelector('[data-menu]')?.addEventListener('click', function() {
             document.querySelector('[data-nav]')?.classList.toggle('open');
