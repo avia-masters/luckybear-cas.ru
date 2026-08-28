@@ -509,8 +509,14 @@
         .section-head h2 { font-size: 30px; color: #ffffff; }
         .section-head a { color: #4ab8ff; }
 
-        .card-grid { display: grid; gap: 24px; }
-        .card-grid-slots { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+        /* ===== FULL-SIZE GAME CARDS ===== */
+        .card-grid { 
+            display: grid; 
+            gap: 24px; 
+        }
+        .card-grid-slots { 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+        }
 
         .content-card {
             background: rgba(16, 35, 65, 0.6);
@@ -529,7 +535,7 @@
         .content-card a { display: block; text-decoration: none; color: inherit; }
         .content-card .card-media {
             width: 100%;
-            padding-top: 56.25%;
+            padding-top: 75%;
             position: relative;
             background: #0f2040;
             overflow: hidden;
@@ -544,15 +550,24 @@
             transition: transform 0.6s ease;
         }
         .content-card:hover .card-media img { transform: scale(1.1); }
-        .content-card .card-copy { padding: 16px 20px 20px; }
+        .content-card .card-copy { 
+            padding: 18px 22px 22px; 
+        }
         .content-card .card-copy span {
             font-size: 13px;
             color: #8aaac8;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .content-card .card-copy h2 { font-size: 18px; color: #ffffff; margin: 4px 0 8px; }
-        .content-card .card-copy p { color: #d0e4f8; font-size: 14px; }
+        .content-card .card-copy h2 { 
+            font-size: 20px; 
+            color: #ffffff; 
+            margin: 6px 0 10px;
+        }
+        .content-card .card-copy p { 
+            color: #d0e4f8; 
+            font-size: 14px; 
+        }
 
         /* ===== REVIEWS ===== */
         .review-preview {
@@ -576,7 +591,10 @@
         }
         .review-preview article strong { color: #4ab8ff; }
         .review-preview article p { color: #d0e4f8; margin-top: 6px; }
-        .review-preview article .stars { color: #4ab8ff; }
+        .review-preview article .stars { 
+            color: #FFD700;
+            letter-spacing: 2px;
+        }
 
         /* ===== FEATURE HOVER ===== */
         .feature-hover {
@@ -716,12 +734,19 @@
             .footer-cta .container { flex-direction: column; text-align: center; }
             .glow-orb { display: none; }
             .stats-card strong { font-size: 24px; }
+            .card-grid-slots { 
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+            }
         }
 
         @media (max-width: 480px) {
             .page-hero h1 { font-size: 24px; }
             .page-hero h1 .big-bonus { font-size: 28px; }
             .stats-card strong { font-size: 20px; }
+            .card-grid-slots { 
+                grid-template-columns: 1fr 1fr; 
+            }
+            .content-card .card-copy h2 { font-size: 16px; }
         }
 
         [hidden] { display: none !important; }
@@ -896,7 +921,7 @@
             </div>
         </section>
 
-        <!-- ===== TOP SLOTS ===== -->
+        <!-- ===== TOP SLOTS (FULL SIZE) ===== -->
         <section class="section">
             <div class="container">
                 <div class="section-head scroll-animate" data-scroll>
@@ -907,10 +932,50 @@
                     <a href="games.html">Все игры →</a>
                 </div>
                 <div class="card-grid card-grid-slots stagger-children" data-scroll>
-                    <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/anubis-wrath.jpg" alt="Anubis Wrath" loading="lazy"></div><div class="card-copy"><span>Pragmatic Play</span><h2>Anubis Wrath</h2></div></a></div>
-                    <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/crazy-time.jpg" alt="Crazy Time" loading="lazy"></div><div class="card-copy"><span>Evolution Gaming</span><h2>Crazy Time</h2></div></a></div>
-                    <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/aviamasters-2.jpg" alt="Aviamasters 2" loading="lazy"></div><div class="card-copy"><span>Pragmatic Play</span><h2>Aviamasters 2</h2></div></a></div>
-                    <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/speed-winner.jpg" alt="Speed Winner" loading="lazy"></div><div class="card-copy"><span>Evolution Gaming</span><h2>Speed Winner</h2></div></a></div>
+                    <div class="content-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="card-media">
+                                <img src="images/anubis-wrath.jpg" alt="Anubis Wrath" loading="lazy">
+                            </div>
+                            <div class="card-copy">
+                                <span>Pragmatic Play</span>
+                                <h2>Anubis Wrath</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="card-media">
+                                <img src="images/crazy-time.jpg" alt="Crazy Time" loading="lazy">
+                            </div>
+                            <div class="card-copy">
+                                <span>Evolution Gaming</span>
+                                <h2>Crazy Time</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="card-media">
+                                <img src="images/aviamasters-2.jpg" alt="Aviamasters 2" loading="lazy">
+                            </div>
+                            <div class="card-copy">
+                                <span>Pragmatic Play</span>
+                                <h2>Aviamasters 2</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="content-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="card-media">
+                                <img src="images/speed-winner.jpg" alt="Speed Winner" loading="lazy">
+                            </div>
+                            <div class="card-copy">
+                                <span>Evolution Gaming</span>
+                                <h2>Speed Winner</h2>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
