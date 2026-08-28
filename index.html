@@ -71,7 +71,7 @@
             text-shadow: 0 0 25px rgba(74, 184, 255, 0.2);
         }
 
-        /* ===== PARTICLES ===== */
+        /* ===== PARTICLES BACKGROUND ===== */
         .particles {
             position: fixed;
             top: 0;
@@ -169,82 +169,7 @@
         .stagger-children.visible > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
         .stagger-children.visible > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
 
-        /* ===== TYPEWRITER ON SCROLL ===== */
-        .typewriter-wrapper {
-            display: inline-block;
-            position: relative;
-        }
-
-        .typewriter-wrapper .cursor-blink {
-            display: inline-block;
-            width: 3px;
-            height: 1.2em;
-            background: #4ab8ff;
-            margin-left: 2px;
-            vertical-align: text-bottom;
-            animation: blinkCursor 0.8s step-end infinite;
-        }
-
-        .typewriter-wrapper.done .cursor-blink {
-            display: none;
-        }
-
-        @keyframes blinkCursor {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* ===== FLOATING BONUS LABEL ===== */
-        .bonus-float {
-            display: inline-block;
-            animation: bonusFloat 3s ease-in-out infinite;
-        }
-
-        @keyframes bonusFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-8px) rotate(2deg); }
-        }
-
-        /* ===== COIN RAIN ===== */
-        .coin-rain {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .coin-rain::after {
-            content: '🪙🪙🪙🪙🪙';
-            position: absolute;
-            top: -20px;
-            right: -10px;
-            font-size: 24px;
-            opacity: 0;
-            transform: translateY(-20px);
-            transition: all 0.6s ease;
-            pointer-events: none;
-        }
-
-        .coin-rain:hover::after {
-            opacity: 0.3;
-            transform: translateY(20px) rotate(10deg);
-            animation: coinFall 1.5s ease infinite;
-        }
-
-        @keyframes coinFall {
-            0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
-            50% { opacity: 0.4; }
-            100% { transform: translateY(60px) rotate(360deg); opacity: 0; }
-        }
-
-        /* ===== WAVE DIVIDER ===== */
-        .wave-divider {
-            width: 100%;
-            height: 60px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath d='M0,30 C300,0 600,60 1200,30 L1200,60 L0,60Z' fill='rgba(11,26,51,0.3)'/%3E%3C/svg%3E") no-repeat bottom;
-            background-size: cover;
-            margin: -1px 0;
-        }
-
-        /* ===== PULSE ===== */
+        /* ===== PULSE ANIMATION ===== */
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -254,7 +179,7 @@
             animation: pulse 2s ease-in-out infinite;
         }
 
-        /* ===== SHIMMER ===== */
+        /* ===== SHIMMER ANIMATION ===== */
         @keyframes shimmer {
             0% { background-position: -200% center; }
             100% { background-position: 200% center; }
@@ -268,7 +193,7 @@
             animation: shimmer 3s linear infinite;
         }
 
-        /* ===== FLOATING ===== */
+        /* ===== FLOATING ANIMATION ===== */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -278,17 +203,6 @@
             animation: float 4s ease-in-out infinite;
         }
 
-        /* ===== BIG NUMBER GLOW ===== */
-        .big-number {
-            font-size: 42px;
-            font-weight: 800;
-            background: linear-gradient(135deg, #ffd700, #ff6b35);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            display: inline-block;
-        }
-
-        /* ===== SKIP ===== */
         .skip {
             position: absolute;
             top: -100px;
@@ -565,22 +479,7 @@
             padding: 24px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            position: relative;
-            overflow: hidden;
         }
-        .trust-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(74, 184, 255, 0.05) 0%, transparent 60%);
-            opacity: 0;
-            transition: opacity 0.6s ease;
-            pointer-events: none;
-        }
-        .trust-card:hover::before { opacity: 1; animation: waveRipple 1s ease; }
         .trust-card:hover {
             border-color: #4ab8ff;
             box-shadow: 0 8px 40px rgba(74, 184, 255, 0.08);
@@ -689,18 +588,6 @@
             box-shadow: 0 8px 40px rgba(74, 184, 255, 0.08);
         }
 
-        /* ===== BIG WIN LABEL ===== */
-        .win-label {
-            display: inline-block;
-            background: linear-gradient(135deg, #ffd700, #ff6b35);
-            padding: 2px 14px;
-            border-radius: 20px;
-            font-weight: 700;
-            font-size: 13px;
-            color: #0b1a33;
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-
         /* ===== FOOTER CTA ===== */
         .footer-cta {
             background: linear-gradient(145deg, rgba(11, 26, 51, 0.8), rgba(15, 40, 71, 0.6));
@@ -796,12 +683,6 @@
             background: linear-gradient(135deg, #0d6efd, #4ab8ff);
             color: #ffffff;
             animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes waveRipple {
-            0% { transform: scale(0.5); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0; }
         }
 
         /* ===== RESPONSIVE ===== */
@@ -957,22 +838,22 @@
         <section class="section">
             <div class="container">
                 <div class="trust-grid stagger-children" data-scroll>
-                    <div class="trust-card coin-rain">
+                    <div class="trust-card">
                         <span class="trust-icon">💰</span>
                         <strong>500% на первый депозит</strong>
                         <span>Пополните счёт и получите прибавку в 5 раз</span>
                     </div>
-                    <div class="trust-card coin-rain">
+                    <div class="trust-card">
                         <span class="trust-icon">🎰</span>
                         <strong>300 бесплатных вращений</strong>
                         <span>Играйте в популярные слоты без риска</span>
                     </div>
-                    <div class="trust-card coin-rain">
+                    <div class="trust-card">
                         <span class="trust-icon">⚡</span>
                         <strong>Вывод за 5 минут</strong>
                         <span>Быстрые транзакции без лишних задержек</span>
                     </div>
-                    <div class="trust-card coin-rain">
+                    <div class="trust-card">
                         <span class="trust-icon">🏆</span>
                         <strong>Турниры на 15 000 000 ₽</strong>
                         <span>Соревнуйтесь и выигрывайте крупные призы</span>
@@ -1015,51 +896,8 @@
             </div>
         </section>
 
-        <!-- ===== TYPEWRITER SECTION ===== -->
-        <section class="section">
-            <div class="container">
-                <div class="section-head scroll-animate" data-scroll>
-                    <div>
-                        <span class="eyebrow">🔥 Горячие новости</span>
-                        <h2>
-                            <span class="typewriter-wrapper" data-typewriter>
-                                <span class="typewriter-text"></span>
-                                <span class="cursor-blink"></span>
-                            </span>
-                        </h2>
-                    </div>
-                </div>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;" class="stagger-children" data-scroll>
-                    <div style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;">
-                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-                            <span class="win-label">🏆 РЕКОРД</span>
-                            <span style="color:#8aaac8;font-size:13px;">Сегодня</span>
-                        </div>
-                        <strong style="color:#ffffff;font-size:20px;">Выигрыш 4 256 789 ₽</strong>
-                        <p style="color:#8aaac8;font-size:14px;margin-top:8px;">Игрок из Москвы сорвал джекпот в слоте Anubis Wrath</p>
-                    </div>
-                    <div style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;">
-                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-                            <span class="win-label">🎯 АКЦИЯ</span>
-                            <span style="color:#8aaac8;font-size:13px;">До конца недели</span>
-                        </div>
-                        <strong style="color:#ffffff;font-size:20px;">+50% к любому депозиту</strong>
-                        <p style="color:#8aaac8;font-size:14px;margin-top:8px;">Успейте пополнить счёт с дополнительным бонусом</p>
-                    </div>
-                    <div style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;">
-                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-                            <span class="win-label">🆕 НОВИНКА</span>
-                            <span style="color:#8aaac8;font-size:13px;">Только что</span>
-                        </div>
-                        <strong style="color:#ffffff;font-size:20px;">20 новых слотов</strong>
-                        <p style="color:#8aaac8;font-size:14px;margin-top:8px;">Пополнение коллекции от топовых провайдеров</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- ===== TOP SLOTS ===== -->
-        <section class="section soft">
+        <section class="section">
             <div class="container">
                 <div class="section-head scroll-animate" data-scroll>
                     <div>
@@ -1078,7 +916,7 @@
         </section>
 
         <!-- ===== REVIEWS ===== -->
-        <section class="section">
+        <section class="section soft">
             <div class="container">
                 <div class="section-head scroll-animate" data-scroll>
                     <div>
@@ -1193,38 +1031,6 @@
                 });
             }, { threshold: 0.5 });
             counters.forEach(c => observer.observe(c));
-        })();
-
-        // ===== TYPEWRITER ON SCROLL =====
-        (function initTypewriter() {
-            const wrapper = document.querySelector('[data-typewriter]');
-            if (!wrapper) return;
-
-            const textEl = wrapper.querySelector('.typewriter-text');
-            const text = 'Джекпот уже ждёт тебя!';
-            let charIndex = 0;
-            let isStarted = false;
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !isStarted) {
-                        isStarted = true;
-                        typeText();
-                    }
-                });
-            }, { threshold: 0.5 });
-
-            observer.observe(wrapper);
-
-            function typeText() {
-                if (charIndex < text.length) {
-                    textEl.textContent += text.charAt(charIndex);
-                    charIndex++;
-                    setTimeout(typeText, 80 + Math.random() * 40);
-                } else {
-                    wrapper.classList.add('done');
-                }
-            }
         })();
 
         // ===== SCROLL ANIMATIONS =====
