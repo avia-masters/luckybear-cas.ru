@@ -509,7 +509,7 @@
         .section-head h2 { font-size: 28px; color: #ffffff; }
         .section-head a { color: #4ab8ff; font-size: 14px; }
 
-        /* ===== COMPACT FULL-SIZE GAME CARDS ===== */
+        /* ===== COMPACT FULL-SIZE GAME CARDS (NO BLACK BORDERS) ===== */
         .card-grid { 
             display: grid; 
             gap: 20px; 
@@ -538,7 +538,7 @@
             color: inherit; 
         }
 
-        /* ===== CARD MEDIA — FULL WIDTH, NO CROP ===== */
+        /* ===== CARD MEDIA — FULL WIDTH, COVER (NO BLACK BORDERS) ===== */
         .content-card .card-media {
             width: 100%;
             padding-top: 56.25%;
@@ -552,12 +552,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            background: #0a1a30;
+            object-fit: cover;
             transition: transform 0.5s ease;
         }
         .content-card:hover .card-media img { 
-            transform: scale(1.05); 
+            transform: scale(1.08); 
         }
 
         /* ===== DARK OVERLAY ===== */
@@ -998,7 +997,7 @@
             </div>
         </section>
 
-        <!-- ===== TOP SLOTS (COMPACT FULL-SIZE WITH PLAY BUTTON) ===== -->
+        <!-- ===== TOP SLOTS (COMPACT FULL-SIZE, NO BLACK BORDERS) ===== -->
         <section class="section">
             <div class="container">
                 <div class="section-head scroll-animate" data-scroll>
