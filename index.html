@@ -71,7 +71,7 @@
             text-shadow: 0 0 25px rgba(74, 184, 255, 0.2);
         }
 
-        /* ===== PARTICLES BACKGROUND ===== */
+        /* ===== PARTICLES ===== */
         .particles {
             position: fixed;
             top: 0;
@@ -158,40 +158,6 @@
             transform: translateY(0);
         }
 
-        .scroll-animate-left {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .scroll-animate-left.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scroll-animate-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .scroll-animate-right.visible {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .scroll-animate-scale {
-            opacity: 0;
-            transform: scale(0.8);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .scroll-animate-scale.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* ===== STAGGERED CHILDREN ===== */
         .stagger-children > * {
             opacity: 0;
             transform: translateY(30px);
@@ -202,21 +168,83 @@
         .stagger-children.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
         .stagger-children.visible > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
         .stagger-children.visible > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
 
-        .stagger-children-grid > * {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        /* ===== TYPEWRITER ON SCROLL ===== */
+        .typewriter-wrapper {
+            display: inline-block;
+            position: relative;
         }
 
-        .stagger-children-grid.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
-        .stagger-children-grid.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-        .stagger-children-grid.visible > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
-        .stagger-children-grid.visible > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
+        .typewriter-wrapper .cursor-blink {
+            display: inline-block;
+            width: 3px;
+            height: 1.2em;
+            background: #4ab8ff;
+            margin-left: 2px;
+            vertical-align: text-bottom;
+            animation: blinkCursor 0.8s step-end infinite;
+        }
 
-        /* ===== PULSE ANIMATION ===== */
+        .typewriter-wrapper.done .cursor-blink {
+            display: none;
+        }
+
+        @keyframes blinkCursor {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ===== FLOATING BONUS LABEL ===== */
+        .bonus-float {
+            display: inline-block;
+            animation: bonusFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes bonusFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+
+        /* ===== COIN RAIN ===== */
+        .coin-rain {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coin-rain::after {
+            content: '🪙🪙🪙🪙🪙';
+            position: absolute;
+            top: -20px;
+            right: -10px;
+            font-size: 24px;
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.6s ease;
+            pointer-events: none;
+        }
+
+        .coin-rain:hover::after {
+            opacity: 0.3;
+            transform: translateY(20px) rotate(10deg);
+            animation: coinFall 1.5s ease infinite;
+        }
+
+        @keyframes coinFall {
+            0% { transform: translateY(-20px) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.4; }
+            100% { transform: translateY(60px) rotate(360deg); opacity: 0; }
+        }
+
+        /* ===== WAVE DIVIDER ===== */
+        .wave-divider {
+            width: 100%;
+            height: 60px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 60'%3E%3Cpath d='M0,30 C300,0 600,60 1200,30 L1200,60 L0,60Z' fill='rgba(11,26,51,0.3)'/%3E%3C/svg%3E") no-repeat bottom;
+            background-size: cover;
+            margin: -1px 0;
+        }
+
+        /* ===== PULSE ===== */
         @keyframes pulse {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
@@ -226,12 +254,7 @@
             animation: pulse 2s ease-in-out infinite;
         }
 
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 20px rgba(74, 184, 255, 0.2); }
-            50% { box-shadow: 0 0 40px rgba(74, 184, 255, 0.4); }
-        }
-
-        /* ===== SHIMMER ANIMATION ===== */
+        /* ===== SHIMMER ===== */
         @keyframes shimmer {
             0% { background-position: -200% center; }
             100% { background-position: 200% center; }
@@ -245,7 +268,7 @@
             animation: shimmer 3s linear infinite;
         }
 
-        /* ===== FLOATING ANIMATION ===== */
+        /* ===== FLOATING ===== */
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
@@ -255,8 +278,14 @@
             animation: float 4s ease-in-out infinite;
         }
 
-        .float-animate-delay {
-            animation: float 4s ease-in-out 2s infinite;
+        /* ===== BIG NUMBER GLOW ===== */
+        .big-number {
+            font-size: 42px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffd700, #ff6b35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
         }
 
         /* ===== SKIP ===== */
@@ -287,14 +316,8 @@
         }
 
         @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            from { transform: translateY(-100%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
 
         .header-row {
@@ -350,16 +373,9 @@
             transition: width 0.3s ease;
         }
         .main-nav a:hover::after,
-        .main-nav a.active::after {
-            width: 100%;
-        }
-        .main-nav a:hover {
-            color: #4ab8ff;
-            text-shadow: 0 0 20px rgba(74, 184, 255, 0.15);
-        }
-        .main-nav a.active {
-            color: #4ab8ff;
-        }
+        .main-nav a.active::after { width: 100%; }
+        .main-nav a:hover { color: #4ab8ff; text-shadow: 0 0 20px rgba(74, 184, 255, 0.15); }
+        .main-nav a.active { color: #4ab8ff; }
 
         .header-actions {
             display: flex;
@@ -438,10 +454,7 @@
             transform: translateY(-2px);
         }
 
-        .btn.large {
-            padding: 14px 40px;
-            font-size: 18px;
-        }
+        .btn.large { padding: 14px 40px; font-size: 18px; }
 
         /* ===== HERO ===== */
         .page-hero {
@@ -483,7 +496,7 @@
 
         .page-hero h1 .big-bonus {
             font-size: 54px;
-            background: linear-gradient(135deg, #0d6efd, #4ab8ff);
+            background: linear-gradient(135deg, #ffd700, #ff6b35);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: pulse 2s ease-in-out infinite;
@@ -514,27 +527,21 @@
             padding: 30px 24px;
             box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
             transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            animation: pulseGlow 3s ease-in-out infinite;
         }
         .stats-card:hover {
             border-color: #4ab8ff;
             transform: translateY(-4px);
             box-shadow: 0 12px 60px rgba(74, 184, 255, 0.08);
         }
-        .stats-card div {
-            text-align: center;
-        }
+        .stats-card div { text-align: center; }
         .stats-card strong {
             display: block;
             font-size: 32px;
-            background: linear-gradient(135deg, #0d6efd, #4ab8ff);
+            background: linear-gradient(135deg, #ffd700, #ff6b35);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .stats-card span {
-            color: #8aaac8;
-            font-size: 14px;
-        }
+        .stats-card span { color: #8aaac8; font-size: 14px; }
 
         /* ===== SECTIONS ===== */
         .section { padding: 50px 0; }
@@ -558,7 +565,22 @@
             padding: 24px;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
         }
+        .trust-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(74, 184, 255, 0.05) 0%, transparent 60%);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            pointer-events: none;
+        }
+        .trust-card:hover::before { opacity: 1; animation: waveRipple 1s ease; }
         .trust-card:hover {
             border-color: #4ab8ff;
             box-shadow: 0 8px 40px rgba(74, 184, 255, 0.08);
@@ -574,16 +596,8 @@
             color: #4ab8ff;
             margin-bottom: 10px;
         }
-        .trust-card strong {
-            display: block;
-            font-size: 18px;
-            color: #ffffff;
-            margin-bottom: 6px;
-        }
-        .trust-card span {
-            color: #8aaac8;
-            font-size: 14px;
-        }
+        .trust-card strong { display: block; font-size: 18px; color: #ffffff; margin-bottom: 6px; }
+        .trust-card span { color: #8aaac8; font-size: 14px; }
 
         .section-head {
             display: flex;
@@ -593,19 +607,11 @@
             margin-bottom: 24px;
         }
         .section-head .eyebrow { margin-bottom: 4px; }
-        .section-head h2 {
-            font-size: 30px;
-            color: #ffffff;
-        }
+        .section-head h2 { font-size: 30px; color: #ffffff; }
         .section-head a { color: #4ab8ff; }
 
-        .card-grid {
-            display: grid;
-            gap: 24px;
-        }
-        .card-grid-slots {
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        }
+        .card-grid { display: grid; gap: 24px; }
+        .card-grid-slots { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
 
         .content-card {
             background: rgba(16, 35, 65, 0.6);
@@ -638,9 +644,7 @@
             object-fit: cover;
             transition: transform 0.6s ease;
         }
-        .content-card:hover .card-media img {
-            transform: scale(1.1);
-        }
+        .content-card:hover .card-media img { transform: scale(1.1); }
         .content-card .card-copy { padding: 16px 20px 20px; }
         .content-card .card-copy span {
             font-size: 13px;
@@ -648,15 +652,8 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .content-card .card-copy h2 {
-            font-size: 18px;
-            color: #ffffff;
-            margin: 4px 0 8px;
-        }
-        .content-card .card-copy p {
-            color: #d0e4f8;
-            font-size: 14px;
-        }
+        .content-card .card-copy h2 { font-size: 18px; color: #ffffff; margin: 4px 0 8px; }
+        .content-card .card-copy p { color: #d0e4f8; font-size: 14px; }
 
         /* ===== REVIEWS ===== */
         .review-preview {
@@ -679,15 +676,10 @@
             box-shadow: 0 8px 40px rgba(74, 184, 255, 0.05);
         }
         .review-preview article strong { color: #4ab8ff; }
-        .review-preview article p {
-            color: #d0e4f8;
-            margin-top: 6px;
-        }
-        .review-preview article .stars {
-            color: #ffd700;
-        }
+        .review-preview article p { color: #d0e4f8; margin-top: 6px; }
+        .review-preview article .stars { color: #ffd700; }
 
-        /* ===== FEATURE CARDS HOVER ===== */
+        /* ===== FEATURE HOVER ===== */
         .feature-hover {
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
@@ -695,6 +687,18 @@
             transform: translateY(-6px) scale(1.03);
             border-color: #4ab8ff;
             box-shadow: 0 8px 40px rgba(74, 184, 255, 0.08);
+        }
+
+        /* ===== BIG WIN LABEL ===== */
+        .win-label {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ff6b35);
+            padding: 2px 14px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 13px;
+            color: #0b1a33;
+            animation: pulse 1.5s ease-in-out infinite;
         }
 
         /* ===== FOOTER CTA ===== */
@@ -711,14 +715,8 @@
             flex-wrap: wrap;
             gap: 30px;
         }
-        .footer-cta h2 {
-            color: #ffffff;
-            font-size: 28px;
-        }
-        .footer-cta p {
-            color: #8aaac8;
-            max-width: 500px;
-        }
+        .footer-cta h2 { color: #ffffff; font-size: 28px; }
+        .footer-cta p { color: #8aaac8; max-width: 500px; }
 
         /* ===== FOOTER ===== */
         .site-footer {
@@ -732,15 +730,8 @@
             grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
             gap: 30px;
         }
-        .footer-brand p {
-            color: #8aaac8;
-            font-size: 14px;
-            margin: 12px 0;
-        }
-        .footer-trust {
-            display: flex;
-            gap: 12px;
-        }
+        .footer-brand p { color: #8aaac8; font-size: 14px; margin: 12px 0; }
+        .footer-trust { display: flex; gap: 12px; }
         .footer-trust span {
             background: rgba(26, 65, 124, 0.4);
             padding: 2px 12px;
@@ -762,10 +753,7 @@
             padding: 3px 0;
             transition: all 0.3s ease;
         }
-        .footer-grid a:hover { 
-            color: #4ab8ff; 
-            transform: translateX(4px);
-        }
+        .footer-grid a:hover { color: #4ab8ff; transform: translateX(4px); }
 
         .footer-bottom {
             border-top: 1px solid rgba(26, 65, 124, 0.3);
@@ -810,6 +798,12 @@
             animation: pulse 2s ease-in-out infinite;
         }
 
+        @keyframes waveRipple {
+            0% { transform: scale(0.5); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .footer-grid { grid-template-columns: 1fr 1fr; }
@@ -840,11 +834,13 @@
             .hero-grid { grid-template-columns: 1fr; }
             .footer-cta .container { flex-direction: column; text-align: center; }
             .glow-orb { display: none; }
+            .stats-card strong { font-size: 24px; }
         }
 
         @media (max-width: 480px) {
             .page-hero h1 { font-size: 24px; }
             .page-hero h1 .big-bonus { font-size: 28px; }
+            .stats-card strong { font-size: 20px; }
         }
 
         [hidden] { display: none !important; }
@@ -938,19 +934,19 @@
                 </div>
                 <div class="stats-card float-animate">
                     <div>
-                        <strong data-count="5847">0</strong>
+                        <strong data-count="9847">0</strong>
                         <span>игроков сегодня</span>
                     </div>
                     <div>
-                        <strong data-count="1234567">0</strong>
-                        <span>выплачено за неделю</span>
+                        <strong data-count="8234567">0</strong>
+                        <span>₽ выплачено за неделю</span>
                     </div>
                     <div>
-                        <strong>98%</strong>
+                        <strong>98.7%</strong>
                         <span>рекомендуют</span>
                     </div>
                     <div>
-                        <strong>4.9⭐</strong>
+                        <strong>4.97⭐</strong>
                         <span>средний рейтинг</span>
                     </div>
                 </div>
@@ -960,25 +956,25 @@
         <!-- ===== TRUST ===== -->
         <section class="section">
             <div class="container">
-                <div class="trust-grid stagger-children-grid" data-scroll>
-                    <div class="trust-card">
+                <div class="trust-grid stagger-children" data-scroll>
+                    <div class="trust-card coin-rain">
                         <span class="trust-icon">💰</span>
                         <strong>500% на первый депозит</strong>
                         <span>Пополните счёт и получите прибавку в 5 раз</span>
                     </div>
-                    <div class="trust-card">
+                    <div class="trust-card coin-rain">
                         <span class="trust-icon">🎰</span>
                         <strong>300 бесплатных вращений</strong>
                         <span>Играйте в популярные слоты без риска</span>
                     </div>
-                    <div class="trust-card">
+                    <div class="trust-card coin-rain">
                         <span class="trust-icon">⚡</span>
                         <strong>Вывод за 5 минут</strong>
                         <span>Быстрые транзакции без лишних задержек</span>
                     </div>
-                    <div class="trust-card">
+                    <div class="trust-card coin-rain">
                         <span class="trust-icon">🏆</span>
-                        <strong>Турниры на 5 000 000 ₽</strong>
+                        <strong>Турниры на 15 000 000 ₽</strong>
                         <span>Соревнуйтесь и выигрывайте крупные призы</span>
                     </div>
                 </div>
@@ -988,7 +984,7 @@
         <!-- ===== WHY US ===== -->
         <section class="section soft">
             <div class="container">
-                <div class="section-head" data-scroll>
+                <div class="section-head scroll-animate" data-scroll>
                     <div>
                         <span class="eyebrow">Почему выбирают нас</span>
                         <h2>Играть в Lucky Bear — выгодно</h2>
@@ -1019,17 +1015,60 @@
             </div>
         </section>
 
-        <!-- ===== TOP SLOTS ===== -->
+        <!-- ===== TYPEWRITER SECTION ===== -->
         <section class="section">
             <div class="container">
-                <div class="section-head" data-scroll>
+                <div class="section-head scroll-animate" data-scroll>
+                    <div>
+                        <span class="eyebrow">🔥 Горячие новости</span>
+                        <h2>
+                            <span class="typewriter-wrapper" data-typewriter>
+                                <span class="typewriter-text"></span>
+                                <span class="cursor-blink"></span>
+                            </span>
+                        </h2>
+                    </div>
+                </div>
+                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;" class="stagger-children" data-scroll>
+                    <div style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;">
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                            <span class="win-label">🏆 РЕКОРД</span>
+                            <span style="color:#8aaac8;font-size:13px;">Сегодня</span>
+                        </div>
+                        <strong style="color:#ffffff;font-size:20px;">Выигрыш 4 256 789 ₽</strong>
+                        <p style="color:#8aaac8;font-size:14px;margin-top:8px;">Игрок из Москвы сорвал джекпот в слоте Anubis Wrath</p>
+                    </div>
+                    <div style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;">
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                            <span class="win-label">🎯 АКЦИЯ</span>
+                            <span style="color:#8aaac8;font-size:13px;">До конца недели</span>
+                        </div>
+                        <strong style="color:#ffffff;font-size:20px;">+50% к любому депозиту</strong>
+                        <p style="color:#8aaac8;font-size:14px;margin-top:8px;">Успейте пополнить счёт с дополнительным бонусом</p>
+                    </div>
+                    <div style="background:rgba(16,35,65,0.5);border:1px solid rgba(26,65,124,0.4);border-radius:16px;padding:24px;">
+                        <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                            <span class="win-label">🆕 НОВИНКА</span>
+                            <span style="color:#8aaac8;font-size:13px;">Только что</span>
+                        </div>
+                        <strong style="color:#ffffff;font-size:20px;">20 новых слотов</strong>
+                        <p style="color:#8aaac8;font-size:14px;margin-top:8px;">Пополнение коллекции от топовых провайдеров</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TOP SLOTS ===== -->
+        <section class="section soft">
+            <div class="container">
+                <div class="section-head scroll-animate" data-scroll>
                     <div>
                         <span class="eyebrow">Топ игры</span>
                         <h2>Лучшие слоты прямо сейчас</h2>
                     </div>
                     <a href="games.html">Все игры →</a>
                 </div>
-                <div class="card-grid card-grid-slots stagger-children-grid" data-scroll>
+                <div class="card-grid card-grid-slots stagger-children" data-scroll>
                     <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/anubis-wrath.jpg" alt="Anubis Wrath" loading="lazy"></div><div class="card-copy"><span>Pragmatic Play</span><h2>Anubis Wrath</h2></div></a></div>
                     <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/crazy-time.jpg" alt="Crazy Time" loading="lazy"></div><div class="card-copy"><span>Evolution Gaming</span><h2>Crazy Time</h2></div></a></div>
                     <div class="content-card"><a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored"><div class="card-media"><img src="images/aviamasters-2.jpg" alt="Aviamasters 2" loading="lazy"></div><div class="card-copy"><span>Pragmatic Play</span><h2>Aviamasters 2</h2></div></a></div>
@@ -1039,9 +1078,9 @@
         </section>
 
         <!-- ===== REVIEWS ===== -->
-        <section class="section soft">
+        <section class="section">
             <div class="container">
-                <div class="section-head" data-scroll>
+                <div class="section-head scroll-animate" data-scroll>
                     <div>
                         <span class="eyebrow">Отзывы</span>
                         <h2>Что говорят игроки</h2>
@@ -1051,15 +1090,15 @@
                 <div class="review-preview stagger-children" data-scroll>
                     <article>
                         <strong>Алексей М.</strong> <span class="stars">★★★★★</span>
-                        <p>"Получил 500% бонус, отыграл за 2 часа и вывел 250 000 ₽ за 10 минут! Лучшее казино!"</p>
+                        <p>"Получил 500% бонус, отыграл за 2 часа и вывел <strong style="color:#ffd700;">450 000 ₽</strong> за 10 минут! Лучшее казино!"</p>
                     </article>
                     <article>
                         <strong>Екатерина С.</strong> <span class="stars">★★★★★</span>
-                        <p>"300 фриспинов — это просто космос! Выиграла 180 000 ₽, выплатили мгновенно."</p>
+                        <p>"300 фриспинов — это просто космос! Выиграла <strong style="color:#ffd700;">280 000 ₽</strong>, выплатили мгновенно."</p>
                     </article>
                     <article>
                         <strong>Дмитрий К.</strong> <span class="stars">★★★★★</span>
-                        <p>"Играю уже месяц. Вывод за 5 минут, поддержка 24/7. Бонусы просто огромные!"</p>
+                        <p>"Играю уже месяц. Вывод за 5 минут, поддержка 24/7. За месяц вывел <strong style="color:#ffd700;">1 230 000 ₽</strong>!"</p>
                     </article>
                 </div>
             </div>
@@ -1068,7 +1107,7 @@
     </main>
 
     <!-- ===== CTA ===== -->
-    <section class="footer-cta" data-scroll>
+    <section class="footer-cta scroll-animate" data-scroll>
         <div class="container">
             <div>
                 <span>🎯 Успей забрать!</span>
@@ -1082,7 +1121,7 @@
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
         <div class="container footer-grid">
-            <div class="footer-brand" data-scroll>
+            <div class="footer-brand scroll-animate" data-scroll>
                 <div style="display:flex; align-items:center; gap:12px;">
                     <img src="images/menu-logo.png" alt="Lucky Bear Казино" style="height:40px; width:auto;">
                     <span style="font-size:20px; font-weight:800; color:#ffffff;">Lucky Bear</span>
@@ -1090,10 +1129,10 @@
                 <p>Русскоязычный сайт Lucky Bear Казино для совершеннолетних пользователей стран СНГ. 500% бонус + 300 фриспинов ждут тебя!</p>
                 <div class="footer-trust"><span>HTTPS</span><span>18+</span><span>Лицензия</span></div>
             </div>
-            <div data-scroll><strong>Информация</strong><a href="about.html">О нас</a><a href="rules.html">Правила</a><a href="faq.html">FAQ</a><a href="contacts.html">Контакты</a></div>
-            <div data-scroll><strong>Игры</strong><a href="games.html">Слоты</a><a href="games.html">Live-казино</a><a href="games.html">Новые игры</a><a href="providers.html">Провайдеры</a></div>
-            <div data-scroll><strong>Бонусы</strong><a href="bonus.html">500% бонус</a><a href="bonus.html">300 фриспинов</a><a href="vip.html">VIP-программа</a><a href="tournaments.html">Турниры</a></div>
-            <div data-scroll><strong>Помощь</strong><a href="payment.html">Пополнение и вывод</a><a href="app.html">Мобильное приложение</a><a href="reviews.html">Отзывы</a><a href="blog.html">Блог</a></div>
+            <div class="scroll-animate" data-scroll><strong>Информация</strong><a href="about.html">О нас</a><a href="rules.html">Правила</a><a href="faq.html">FAQ</a><a href="contacts.html">Контакты</a></div>
+            <div class="scroll-animate" data-scroll><strong>Игры</strong><a href="games.html">Слоты</a><a href="games.html">Live-казино</a><a href="games.html">Новые игры</a><a href="providers.html">Провайдеры</a></div>
+            <div class="scroll-animate" data-scroll><strong>Бонусы</strong><a href="bonus.html">500% бонус</a><a href="bonus.html">300 фриспинов</a><a href="vip.html">VIP-программа</a><a href="tournaments.html">Турниры</a></div>
+            <div class="scroll-animate" data-scroll><strong>Помощь</strong><a href="payment.html">Пополнение и вывод</a><a href="app.html">Мобильное приложение</a><a href="reviews.html">Отзывы</a><a href="blog.html">Блог</a></div>
         </div>
         <div class="container footer-bottom">
             <span>© 2026 Lucky Bear Казино. Все права защищены.</span>
@@ -1111,15 +1150,15 @@
         // ===== PARTICLES =====
         (function createParticles() {
             const container = document.getElementById('particles');
-            const count = 35;
+            const count = 40;
             for (let i = 0; i < count; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
-                const size = 20 + Math.random() * 60;
+                const size = 15 + Math.random() * 50;
                 particle.style.width = size + 'px';
                 particle.style.height = size + 'px';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = 18 + Math.random() * 30 + 's';
+                particle.style.animationDuration = 15 + Math.random() * 25 + 's';
                 particle.style.animationDelay = Math.random() * 20 + 's';
                 container.appendChild(particle);
             }
@@ -1133,13 +1172,14 @@
                     if (entry.isIntersecting) {
                         const el = entry.target;
                         const target = parseInt(el.dataset.count);
-                        const duration = 2000;
+                        const duration = 2500;
                         const start = performance.now();
                         const format = target > 1000 ? (n) => n.toLocaleString('ru-RU') : (n) => n.toString();
                         
                         function updateCounter(time) {
                             const progress = Math.min((time - start) / duration, 1);
-                            const current = Math.floor(progress * target);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = Math.floor(eased * target);
                             el.textContent = format(current);
                             if (progress < 1) {
                                 requestAnimationFrame(updateCounter);
@@ -1155,6 +1195,38 @@
             counters.forEach(c => observer.observe(c));
         })();
 
+        // ===== TYPEWRITER ON SCROLL =====
+        (function initTypewriter() {
+            const wrapper = document.querySelector('[data-typewriter]');
+            if (!wrapper) return;
+
+            const textEl = wrapper.querySelector('.typewriter-text');
+            const text = 'Джекпот уже ждёт тебя!';
+            let charIndex = 0;
+            let isStarted = false;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !isStarted) {
+                        isStarted = true;
+                        typeText();
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(wrapper);
+
+            function typeText() {
+                if (charIndex < text.length) {
+                    textEl.textContent += text.charAt(charIndex);
+                    charIndex++;
+                    setTimeout(typeText, 80 + Math.random() * 40);
+                } else {
+                    wrapper.classList.add('done');
+                }
+            }
+        })();
+
         // ===== SCROLL ANIMATIONS =====
         (function initScrollAnimations() {
             const animatedElements = document.querySelectorAll('[data-scroll]');
@@ -1166,7 +1238,7 @@
                 });
             }, { 
                 threshold: 0.15,
-                rootMargin: '0px 0px -50px 0px'
+                rootMargin: '0px 0px -30px 0px'
             });
             animatedElements.forEach(el => observer.observe(el));
         })();
