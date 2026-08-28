@@ -509,7 +509,7 @@
         .section-head h2 { font-size: 30px; color: #ffffff; }
         .section-head a { color: #4ab8ff; }
 
-        /* ===== FULL-SIZE GAME CARDS ===== */
+        /* ===== FULL-SIZE GAME CARDS WITH PLAY BUTTON ===== */
         .card-grid { 
             display: grid; 
             gap: 24px; 
@@ -532,7 +532,11 @@
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 12px 60px rgba(74, 184, 255, 0.08);
         }
-        .content-card a { display: block; text-decoration: none; color: inherit; }
+        .content-card .card-link { 
+            display: block; 
+            text-decoration: none; 
+            color: inherit; 
+        }
         .content-card .card-media {
             width: 100%;
             padding-top: 75%;
@@ -550,6 +554,55 @@
             transition: transform 0.6s ease;
         }
         .content-card:hover .card-media img { transform: scale(1.1); }
+
+        /* ===== DARK OVERLAY ===== */
+        .content-card .card-media::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 26, 51, 0.5);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
+        }
+        .content-card:hover .card-media::after {
+            opacity: 1;
+        }
+
+        /* ===== PLAY BUTTON ON CARD ===== */
+        .card-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: linear-gradient(135deg, #0d6efd, #4ab8ff);
+            color: #ffffff;
+            padding: 12px 32px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 30px rgba(13, 110, 253, 0.4);
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            z-index: 2;
+            text-transform: uppercase;
+        }
+
+        .content-card:hover .card-play-btn {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .card-play-btn:hover {
+            transform: translate(-50%, -50%) scale(1.08) !important;
+            box-shadow: 0 8px 50px rgba(74, 184, 255, 0.6);
+        }
+
         .content-card .card-copy { 
             padding: 18px 22px 22px; 
         }
@@ -737,6 +790,10 @@
             .card-grid-slots { 
                 grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
             }
+            .card-play-btn {
+                padding: 8px 20px;
+                font-size: 13px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -746,7 +803,12 @@
             .card-grid-slots { 
                 grid-template-columns: 1fr 1fr; 
             }
-            .content-card .card-copy h2 { font-size: 16px; }
+            .content-card .card-copy h2 { font-size: 14px; }
+            .content-card .card-copy span { font-size: 10px; }
+            .card-play-btn {
+                padding: 6px 14px;
+                font-size: 11px;
+            }
         }
 
         [hidden] { display: none !important; }
@@ -921,7 +983,7 @@
             </div>
         </section>
 
-        <!-- ===== TOP SLOTS (FULL SIZE) ===== -->
+        <!-- ===== TOP SLOTS (FULL SIZE with PLAY BUTTON) ===== -->
         <section class="section">
             <div class="container">
                 <div class="section-head scroll-animate" data-scroll>
@@ -933,9 +995,10 @@
                 </div>
                 <div class="card-grid card-grid-slots stagger-children" data-scroll>
                     <div class="content-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
                             <div class="card-media">
                                 <img src="images/anubis-wrath.jpg" alt="Anubis Wrath" loading="lazy">
+                                <div class="card-play-btn">Играть</div>
                             </div>
                             <div class="card-copy">
                                 <span>Pragmatic Play</span>
@@ -944,9 +1007,10 @@
                         </a>
                     </div>
                     <div class="content-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
                             <div class="card-media">
                                 <img src="images/crazy-time.jpg" alt="Crazy Time" loading="lazy">
+                                <div class="card-play-btn">Играть</div>
                             </div>
                             <div class="card-copy">
                                 <span>Evolution Gaming</span>
@@ -955,9 +1019,10 @@
                         </a>
                     </div>
                     <div class="content-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
                             <div class="card-media">
                                 <img src="images/aviamasters-2.jpg" alt="Aviamasters 2" loading="lazy">
+                                <div class="card-play-btn">Играть</div>
                             </div>
                             <div class="card-copy">
                                 <span>Pragmatic Play</span>
@@ -966,9 +1031,10 @@
                         </a>
                     </div>
                     <div class="content-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
                             <div class="card-media">
                                 <img src="images/speed-winner.jpg" alt="Speed Winner" loading="lazy">
+                                <div class="card-play-btn">Играть</div>
                             </div>
                             <div class="card-copy">
                                 <span>Evolution Gaming</span>
