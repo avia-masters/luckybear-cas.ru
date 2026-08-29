@@ -286,6 +286,7 @@
             outline: none;
             transition: 0.3s;
             font-family: inherit;
+            width: 180px;
         }
         .filter-search input::placeholder { color: #5a7a9a; }
         .filter-search input:focus {
@@ -334,24 +335,39 @@
             transform: translateY(-5px);
             box-shadow: 0 8px 40px rgba(74, 184, 255, 0.08);
         }
-        .game-card a {
-            display: block;
-            color: inherit;
-            text-decoration: none;
-        }
         .game-card .game-media {
             width: 100%;
             padding-top: 75%;
             position: relative;
-            background: #0f2040;
+            background: linear-gradient(145deg, #0d2040, #1a3a6a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .game-card .game-media img {
+        .game-card .game-media .game-icon {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 56px;
+            color: rgba(74, 184, 255, 0.15);
+            transition: 0.3s;
+        }
+        .game-card:hover .game-media .game-icon {
+            color: rgba(74, 184, 255, 0.3);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+        .game-card .game-media .game-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(13, 110, 253, 0.8);
+            padding: 2px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            color: #ffffff;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
         }
         .game-card .game-info {
             padding: 14px 16px 16px;
@@ -361,6 +377,9 @@
             color: #8aaac8;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+        .game-card .game-info .provider i {
+            margin-right: 4px;
         }
         .game-card .game-info h3 {
             color: #ffffff;
@@ -372,9 +391,12 @@
             justify-content: space-between;
             align-items: center;
         }
-        .game-card .game-info .game-meta span {
+        .game-card .game-info .game-meta .rating {
+            color: #f5b342;
             font-size: 13px;
-            color: #8aaac8;
+        }
+        .game-card .game-info .game-meta .rating .empty {
+            color: #3a5a7a;
         }
         .game-card .game-info .game-meta .badge {
             background: rgba(26, 65, 124, 0.5);
@@ -382,6 +404,18 @@
             border-radius: 20px;
             font-size: 11px;
             color: #4ab8ff;
+        }
+        .game-card .game-info .game-meta .badge.hot {
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.15);
+        }
+        .game-card .game-info .game-meta .badge.new {
+            color: #51cf66;
+            background: rgba(81, 207, 102, 0.15);
+        }
+        .game-card .game-info .game-meta .badge.vip {
+            color: #fcc419;
+            background: rgba(252, 196, 25, 0.15);
         }
         .game-card .play-btn {
             display: block;
@@ -400,6 +434,7 @@
             background: linear-gradient(135deg, #0d6efd, #4ab8ff);
             color: #ffffff;
             border-color: transparent;
+            transform: scale(1.02);
         }
 
         /* ===== PROVIDERS ===== */
@@ -418,6 +453,7 @@
             color: #8aaac8;
             font-size: 14px;
             transition: 0.3s;
+            cursor: default;
         }
         .providers-grid .provider-tag:hover {
             border-color: #4ab8ff;
@@ -600,13 +636,13 @@
                 margin-left: 0;
                 flex-wrap: wrap;
             }
-            .filter-search input { flex: 1; }
+            .filter-search input { flex: 1; min-width: 140px; }
             .footer-grid { grid-template-columns: 1fr; }
             .mobile-bar { display: flex; }
             .site-footer { padding-bottom: 80px; }
             .page-header h1 { font-size: 28px; }
             .footer-cta .container { flex-direction: column; text-align: center; }
-            .game-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
+            .game-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 16px; }
         }
 
         @media (max-width: 480px) {
@@ -615,6 +651,7 @@
             .game-card .game-info { padding: 10px 12px 12px; }
             .game-card .game-info h3 { font-size: 14px; }
             .game-card .play-btn { margin: 0 12px 12px; font-size: 12px; padding: 6px; }
+            .game-card .game-media .game-icon { font-size: 36px; }
         }
 
         [hidden] { display: none !important; }
@@ -697,7 +734,7 @@
                     <button class="filter-btn" data-filter="live">Live-казино</button>
                     <button class="filter-btn" data-filter="table">Настольные</button>
                     <button class="filter-btn" data-filter="new">Новинки</button>
-                    <button class="filter-btn" data-filter="popular">Популярные</button>
+                    <button class="filter-btn" data-filter="hot">Популярные</button>
                     <div class="filter-search">
                         <input type="text" placeholder="Поиск игры..." id="gameSearch">
                         <button class="btn primary small" id="searchBtn"><i class="fas fa-search"></i></button>
@@ -706,361 +743,72 @@
             </div>
         </section>
 
-        <!-- ===== CATEGORY: СЛОТЫ ===== -->
+        <!-- ===== СЛОТЫ ===== -->
         <section class="category-section">
             <div class="container">
                 <h2>🎰 Популярные слоты</h2>
-                <p class="subtitle">Лучшие игровые автоматы от Pragmatic Play, Evolution Gaming и других провайдеров</p>
-                <div class="game-grid" data-category="slots">
-                    <!-- Слот 1 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/anubis-wrath.jpg" alt="Anubis Wrath" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Pragmatic Play</div>
-                                <h3>Anubis Wrath</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.9</span>
-                                    <span class="badge">Популярный</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <!-- Слот 2 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/aviamasters-2.jpg" alt="Aviamasters 2" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Pragmatic Play</div>
-                                <h3>Aviamasters 2</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.8</span>
-                                    <span class="badge">Новинка</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <!-- Слот 3 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/speed-winner.jpg" alt="Speed Winner" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Evolution Gaming</div>
-                                <h3>Speed Winner</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.7</span>
-                                    <span class="badge">Топ</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <!-- Слот 4 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/crazy-time.jpg" alt="Crazy Time" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Evolution Gaming</div>
-                                <h3>Crazy Time</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.9</span>
-                                    <span class="badge">Шоу</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <!-- Слот 5 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/gates-of-olympus.jpg" alt="Gates of Olympus" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Pragmatic Play</div>
-                                <h3>Gates of Olympus</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.8</span>
-                                    <span class="badge">Хит</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <!-- Слот 6 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/sweet-bonanza.jpg" alt="Sweet Bonanza" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Pragmatic Play</div>
-                                <h3>Sweet Bonanza</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.6</span>
-                                    <span class="badge">Сладкий</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <!-- Слот 7 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/book-of-dead.jpg" alt="Book of Dead" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Play'n GO</div>
-                                <h3>Book of Dead</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.7</span>
-                                    <span class="badge">Классика</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <!-- Слот 8 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/starburst.jpg" alt="Starburst" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">NetEnt</div>
-                                <h3>Starburst</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.5</span>
-                                    <span class="badge">Космос</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
+                <p class="subtitle">Лучшие игровые автоматы от ведущих провайдеров</p>
+                <div class="game-grid" id="slotsGrid">
+                    <!-- Заполняется через JavaScript -->
                 </div>
             </div>
         </section>
 
-        <!-- ===== CATEGORY: LIVE ===== -->
+        <!-- ===== LIVE-КАЗИНО ===== -->
         <section class="category-section">
             <div class="container">
                 <h2>🎥 Live-казино с реальными дилерами</h2>
                 <p class="subtitle">Атмосфера настоящего казино с живыми дилерами и трансляциями в HD-качестве</p>
-                <div class="game-grid" data-category="live">
-                    <!-- Live 1 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/live-roulette.jpg" alt="Live Рулетка" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Evolution Gaming</div>
-                                <h3>Live Рулетка</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.9</span>
-                                    <span class="badge">Популярный</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <!-- Live 2 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/live-blackjack.jpg" alt="Live Блэкджек" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Evolution Gaming</div>
-                                <h3>Live Блэкджек</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.8</span>
-                                    <span class="badge">Карты</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <!-- Live 3 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/live-baccarat.jpg" alt="Live Баккара" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Evolution Gaming</div>
-                                <h3>Live Баккара</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.7</span>
-                                    <span class="badge">Элитный</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <!-- Live 4 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/monopoly-live.jpg" alt="Monopoly Live" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Evolution Gaming</div>
-                                <h3>Monopoly Live</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.9</span>
-                                    <span class="badge">Шоу</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
+                <div class="game-grid" id="liveGrid">
+                    <!-- Заполняется через JavaScript -->
                 </div>
             </div>
         </section>
 
-        <!-- ===== CATEGORY: НАСТОЛЬНЫЕ ===== -->
+        <!-- ===== НАСТОЛЬНЫЕ ИГРЫ ===== -->
         <section class="category-section">
             <div class="container">
                 <h2>♠️ Настольные игры</h2>
                 <p class="subtitle">Классические карточные игры и рулетка для ценителей стратегии</p>
-                <div class="game-grid" data-category="table">
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/european-roulette.jpg" alt="Европейская рулетка" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">NetEnt</div>
-                                <h3>Европейская рулетка</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.6</span>
-                                    <span class="badge">Классика</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/blackjack-classic.jpg" alt="Классический блэкджек" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Play'n GO</div>
-                                <h3>Классический блэкджек</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.7</span>
-                                    <span class="badge">Популярный</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/texas-holdem.jpg" alt="Техасский Холдем" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Evolution Gaming</div>
-                                <h3>Техасский Холдем</h3>
-                                <div class="game-meta">
-                                    <span>⭐ 4.8</span>
-                                    <span class="badge">Покер</span>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
+                <div class="game-grid" id="tableGrid">
+                    <!-- Заполняется через JavaScript -->
                 </div>
             </div>
         </section>
 
-        <!-- ===== ALL GAMES ===== -->
+        <!-- ===== ВСЕ ИГРЫ ===== -->
         <section class="category-section">
             <div class="container">
                 <h2>📋 Все игры казино</h2>
                 <p class="subtitle">Полный каталог игр Lucky Bear — более 3000 слотов и live-игр от 50+ провайдеров</p>
-                <div class="game-grid" data-category="all">
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/razor-shark.jpg" alt="Razor Shark" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Push Gaming</div>
-                                <h3>Razor Shark</h3>
-                                <div class="game-meta"><span>⭐ 4.5</span><span class="badge">Океан</span></div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/jammin-jars.jpg" alt="Jammin Jars" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Push Gaming</div>
-                                <h3>Jammin Jars</h3>
-                                <div class="game-meta"><span>⭐ 4.6</span><span class="badge">Фрукты</span></div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/dead-or-alive.jpg" alt="Dead or Alive" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">NetEnt</div>
-                                <h3>Dead or Alive</h3>
-                                <div class="game-meta"><span>⭐ 4.7</span><span class="badge">Вестерн</span></div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/mega-moolah.jpg" alt="Mega Moolah" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Microgaming</div>
-                                <h3>Mega Moolah</h3>
-                                <div class="game-meta"><span>⭐ 4.8</span><span class="badge">Джекпот</span></div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/gonzos-quest.jpg" alt="Gonzo's Quest" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">NetEnt</div>
-                                <h3>Gonzo's Quest</h3>
-                                <div class="game-meta"><span>⭐ 4.7</span><span class="badge">Приключения</span></div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
-                            <div class="game-media"><img src="images/immortal-romance.jpg" alt="Immortal Romance" loading="lazy"></div>
-                            <div class="game-info">
-                                <div class="provider">Microgaming</div>
-                                <h3>Immortal Romance</h3>
-                                <div class="game-meta"><span>⭐ 4.6</span><span class="badge">Вампиры</span></div>
-                            </div>
-                        </a>
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
-                    </div>
-                </div>
-
-                <!-- ===== SHOW MORE ===== -->
-                <div style="text-align:center; padding:10px 0 20px;">
-                    <button class="btn ghost" id="showMoreBtn">Показать еще игры <i class="fas fa-chevron-down"></i></button>
+                <div class="game-grid" id="allGamesGrid">
+                    <!-- Заполняется через JavaScript -->
                 </div>
             </div>
         </section>
 
-        <!-- ===== PROVIDERS ===== -->
+        <!-- ===== ПРОВАЙДЕРЫ ===== -->
         <section class="category-section">
             <div class="container">
                 <h2>🏢 Топ-провайдеры игр</h2>
                 <p class="subtitle">Лучшие разработчики игр для казино — только проверенные бренды</p>
                 <div class="providers-grid">
-                    <span class="provider-tag">Pragmatic Play</span>
-                    <span class="provider-tag">Evolution Gaming</span>
-                    <span class="provider-tag">NetEnt</span>
-                    <span class="provider-tag">Play'n GO</span>
-                    <span class="provider-tag">Microgaming</span>
-                    <span class="provider-tag">Push Gaming</span>
-                    <span class="provider-tag">Yggdrasil</span>
-                    <span class="provider-tag">Quickspin</span>
-                    <span class="provider-tag">Thunderkick</span>
-                    <span class="provider-tag">Betsoft</span>
-                    <span class="provider-tag">Red Tiger</span>
-                    <span class="provider-tag">Blueprint Gaming</span>
-                    <span class="provider-tag">Relax Gaming</span>
-                    <span class="provider-tag">Playtech</span>
-                    <span class="provider-tag">Novomatic</span>
-                    <span class="provider-tag">ELK Studios</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Pragmatic Play</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Evolution Gaming</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> NetEnt</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Play'n GO</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Microgaming</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Push Gaming</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Yggdrasil</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Quickspin</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Thunderkick</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Betsoft</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Red Tiger</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Blueprint Gaming</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Relax Gaming</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Playtech</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> Novomatic</span>
+                    <span class="provider-tag"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> ELK Studios</span>
                 </div>
             </div>
         </section>
@@ -1130,7 +878,7 @@
     <!-- ===== SCRIPTS ===== -->
     <script>
         (function() {
-            // MOBILE MENU TOGGLE
+            // ===== MOBILE MENU =====
             const menuBtn = document.querySelector('[data-menu]');
             const nav = document.querySelector('[data-nav]');
             if (menuBtn && nav) {
@@ -1142,7 +890,7 @@
                 });
             }
 
-            // AGE GATE
+            // ===== AGE GATE =====
             const gate = document.querySelector('[data-age-gate]');
             if (gate) {
                 const acceptBtn = gate.querySelector('[data-age-accept]');
@@ -1165,71 +913,245 @@
                 } catch(e) {}
             }
 
-            // GAME FILTERS (simple show/hide)
+            // ===== ДАННЫЕ ИГР =====
+            const gamesData = {
+                slots: [
+                    { name: 'Anubis Wrath', provider: 'Pragmatic Play', rating: 4.9, badge: 'Популярный', badgeType: 'hot', icon: 'fa-skull' },
+                    { name: 'Aviamasters 2', provider: 'Pragmatic Play', rating: 4.8, badge: 'Новинка', badgeType: 'new', icon: 'fa-plane' },
+                    { name: 'Speed Winner', provider: 'Evolution Gaming', rating: 4.7, badge: 'Топ', badgeType: 'hot', icon: 'fa-bolt' },
+                    { name: 'Crazy Time', provider: 'Evolution Gaming', rating: 4.9, badge: 'Шоу', badgeType: 'hot', icon: 'fa-tv' },
+                    { name: 'Gates of Olympus', provider: 'Pragmatic Play', rating: 4.8, badge: 'Хит', badgeType: 'hot', icon: 'fa-bolt' },
+                    { name: 'Sweet Bonanza', provider: 'Pragmatic Play', rating: 4.6, badge: 'Сладкий', badgeType: '', icon: 'fa-candy-cane' },
+                    { name: 'Book of Dead', provider: 'Play\'n GO', rating: 4.7, badge: 'Классика', badgeType: '', icon: 'fa-book' },
+                    { name: 'Starburst', provider: 'NetEnt', rating: 4.5, badge: 'Космос', badgeType: '', icon: 'fa-star' },
+                    { name: 'Razor Shark', provider: 'Push Gaming', rating: 4.5, badge: 'Океан', badgeType: '', icon: 'fa-fish' },
+                    { name: 'Jammin Jars', provider: 'Push Gaming', rating: 4.6, badge: 'Фрукты', badgeType: '', icon: 'fa-apple-alt' },
+                    { name: 'Dead or Alive', provider: 'NetEnt', rating: 4.7, badge: 'Вестерн', badgeType: '', icon: 'fa-gun' },
+                    { name: 'Mega Moolah', provider: 'Microgaming', rating: 4.8, badge: 'Джекпот', badgeType: 'hot', icon: 'fa-gem' },
+                    { name: 'Gonzo\'s Quest', provider: 'NetEnt', rating: 4.7, badge: 'Приключения', badgeType: '', icon: 'fa-mountain' },
+                    { name: 'Immortal Romance', provider: 'Microgaming', rating: 4.6, badge: 'Вампиры', badgeType: '', icon: 'fa-moon' },
+                    { name: 'Big Bass Bonanza', provider: 'Pragmatic Play', rating: 4.4, badge: 'Рыбалка', badgeType: '', icon: 'fa-fish' },
+                    { name: 'Wild West Gold', provider: 'Pragmatic Play', rating: 4.3, badge: 'Дикий Запад', badgeType: '', icon: 'fa-hat-cowboy' },
+                ],
+                live: [
+                    { name: 'Live Рулетка', provider: 'Evolution Gaming', rating: 4.9, badge: 'Популярный', badgeType: 'hot', icon: 'fa-circle' },
+                    { name: 'Live Блэкджек', provider: 'Evolution Gaming', rating: 4.8, badge: 'Карты', badgeType: '', icon: 'fa-club' },
+                    { name: 'Live Баккара', provider: 'Evolution Gaming', rating: 4.7, badge: 'Элитный', badgeType: 'vip', icon: 'fa-crown' },
+                    { name: 'Monopoly Live', provider: 'Evolution Gaming', rating: 4.9, badge: 'Шоу', badgeType: 'hot', icon: 'fa-gamepad' },
+                    { name: 'Live Покер', provider: 'Evolution Gaming', rating: 4.6, badge: 'Покер', badgeType: '', icon: 'fa-spade' },
+                    { name: 'Live Дилер VIP', provider: 'Evolution Gaming', rating: 4.8, badge: 'VIP', badgeType: 'vip', icon: 'fa-crown' },
+                ],
+                table: [
+                    { name: 'Европейская рулетка', provider: 'NetEnt', rating: 4.6, badge: 'Классика', badgeType: '', icon: 'fa-circle' },
+                    { name: 'Классический блэкджек', provider: 'Play\'n GO', rating: 4.7, badge: 'Популярный', badgeType: 'hot', icon: 'fa-club' },
+                    { name: 'Техасский Холдем', provider: 'Evolution Gaming', rating: 4.8, badge: 'Покер', badgeType: '', icon: 'fa-spade' },
+                    { name: 'Баккара', provider: 'Playtech', rating: 4.5, badge: 'Элитный', badgeType: 'vip', icon: 'fa-crown' },
+                    { name: 'Американская рулетка', provider: 'NetEnt', rating: 4.4, badge: 'Классика', badgeType: '', icon: 'fa-circle' },
+                ],
+                all: [
+                    { name: 'Razor Shark', provider: 'Push Gaming', rating: 4.5, badge: 'Океан', badgeType: '', icon: 'fa-fish' },
+                    { name: 'Jammin Jars', provider: 'Push Gaming', rating: 4.6, badge: 'Фрукты', badgeType: '', icon: 'fa-apple-alt' },
+                    { name: 'Dead or Alive', provider: 'NetEnt', rating: 4.7, badge: 'Вестерн', badgeType: '', icon: 'fa-gun' },
+                    { name: 'Mega Moolah', provider: 'Microgaming', rating: 4.8, badge: 'Джекпот', badgeType: 'hot', icon: 'fa-gem' },
+                    { name: 'Gonzo\'s Quest', provider: 'NetEnt', rating: 4.7, badge: 'Приключения', badgeType: '', icon: 'fa-mountain' },
+                    { name: 'Immortal Romance', provider: 'Microgaming', rating: 4.6, badge: 'Вампиры', badgeType: '', icon: 'fa-moon' },
+                    { name: 'Big Bass Bonanza', provider: 'Pragmatic Play', rating: 4.4, badge: 'Рыбалка', badgeType: '', icon: 'fa-fish' },
+                    { name: 'Wild West Gold', provider: 'Pragmatic Play', rating: 4.3, badge: 'Дикий Запад', badgeType: '', icon: 'fa-hat-cowboy' },
+                    { name: 'Dragon Tiger', provider: 'Evolution Gaming', rating: 4.5, badge: 'Азия', badgeType: '', icon: 'fa-dragon' },
+                    { name: 'Spaceman', provider: 'Pragmatic Play', rating: 4.6, badge: 'Новинка', badgeType: 'new', icon: 'fa-rocket' },
+                    { name: 'Sugar Rush', provider: 'Pragmatic Play', rating: 4.5, badge: 'Сладкий', badgeType: '', icon: 'fa-candy-cane' },
+                    { name: 'The Dog House', provider: 'Pragmatic Play', rating: 4.4, badge: 'Животные', badgeType: '', icon: 'fa-dog' },
+                    { name: 'Blackjack Pro', provider: 'Playtech', rating: 4.6, badge: 'Карты', badgeType: '', icon: 'fa-club' },
+                    { name: 'European Roulette', provider: 'NetEnt', rating: 4.5, badge: 'Классика', badgeType: '', icon: 'fa-circle' },
+                ]
+            };
+
+            // Функция рендеринга звёзд
+            function renderStars(rating) {
+                let html = '';
+                const full = Math.floor(rating);
+                const half = rating % 1 >= 0.5 ? 1 : 0;
+                for (let i = 1; i <= 5; i++) {
+                    if (i <= full) {
+                        html += '<i class="fas fa-star"></i>';
+                    } else if (i === full + 1 && half) {
+                        html += '<i class="fas fa-star-half-alt"></i>';
+                    } else {
+                        html += '<i class="far fa-star"></i>';
+                    }
+                }
+                return html;
+            }
+
+            // Функция рендеринга карточек игр
+            function renderGameCard(game) {
+                const badgeClass = game.badgeType ? game.badgeType : '';
+                return `
+                    <div class="game-card" data-name="${game.name.toLowerCase()}" data-provider="${game.provider.toLowerCase()}">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" style="display:block; color:inherit; text-decoration:none;">
+                            <div class="game-media">
+                                <i class="fas ${game.icon} game-icon"></i>
+                                <span class="game-badge">${game.badge}</span>
+                            </div>
+                            <div class="game-info">
+                                <div class="provider"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> ${game.provider}</div>
+                                <h3>${game.name}</h3>
+                                <div class="game-meta">
+                                    <span class="rating">${renderStars(game.rating)}</span>
+                                    <span class="badge ${badgeClass}">${game.badge}</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                `;
+            }
+
+            // Рендеринг всех игр
+            function renderAllGames() {
+                // Слоты
+                const slotsGrid = document.getElementById('slotsGrid');
+                if (slotsGrid) {
+                    slotsGrid.innerHTML = gamesData.slots.map(g => renderGameCard(g)).join('');
+                }
+
+                // Live
+                const liveGrid = document.getElementById('liveGrid');
+                if (liveGrid) {
+                    liveGrid.innerHTML = gamesData.live.map(g => renderGameCard(g)).join('');
+                }
+
+                // Настольные
+                const tableGrid = document.getElementById('tableGrid');
+                if (tableGrid) {
+                    tableGrid.innerHTML = gamesData.table.map(g => renderGameCard(g)).join('');
+                }
+
+                // Все игры
+                const allGrid = document.getElementById('allGamesGrid');
+                if (allGrid) {
+                    allGrid.innerHTML = gamesData.all.map(g => renderGameCard(g)).join('');
+                }
+            }
+
+            // ===== ФИЛЬТРАЦИЯ =====
             const filterBtns = document.querySelectorAll('.filter-btn');
-            const gameGrids = document.querySelectorAll('.game-grid');
+            const gameSections = {
+                slots: document.getElementById('slotsGrid'),
+                live: document.getElementById('liveGrid'),
+                table: document.getElementById('tableGrid'),
+                all: document.getElementById('allGamesGrid')
+            };
+
+            // Получаем все карточки из всех секций
+            function getAllGameCards() {
+                const cards = [];
+                document.querySelectorAll('.game-grid').forEach(grid => {
+                    grid.querySelectorAll('.game-card').forEach(card => {
+                        cards.push(card);
+                    });
+                });
+                return cards;
+            }
+
+            function applyFilter(filter) {
+                const allCards = getAllGameCards();
+                const sections = ['slotsGrid', 'liveGrid', 'tableGrid', 'allGamesGrid'];
+
+                if (filter === 'all') {
+                    // Показываем все секции и все карточки
+                    sections.forEach(id => {
+                        const grid = document.getElementById(id);
+                        if (grid) grid.style.display = 'grid';
+                    });
+                    allCards.forEach(card => card.style.display = 'block');
+                    return;
+                }
+
+                // Скрываем все карточки
+                allCards.forEach(card => card.style.display = 'none');
+
+                // Определяем, какие секции показывать
+                let activeSections = [];
+                if (filter === 'slots') activeSections = ['slotsGrid'];
+                else if (filter === 'live') activeSections = ['liveGrid'];
+                else if (filter === 'table') activeSections = ['tableGrid'];
+                else if (filter === 'new' || filter === 'hot') {
+                    // Для "Новинки" и "Популярные" показываем все секции с фильтром по бейджу
+                    activeSections = ['slotsGrid', 'liveGrid', 'tableGrid', 'allGamesGrid'];
+                }
+
+                // Показываем нужные секции
+                sections.forEach(id => {
+                    const grid = document.getElementById(id);
+                    if (grid) {
+                        grid.style.display = activeSections.includes(id) ? 'grid' : 'none';
+                    }
+                });
+
+                // Если фильтр по бейджу
+                if (filter === 'new' || filter === 'hot') {
+                    allCards.forEach(card => {
+                        const badge = card.querySelector('.badge');
+                        if (badge) {
+                            const isNew = badge.classList.contains('new');
+                            const isHot = badge.classList.contains('hot');
+                            if ((filter === 'new' && isNew) || (filter === 'hot' && isHot)) {
+                                card.style.display = 'block';
+                            }
+                        }
+                    });
+                } else {
+                    // Для категорий показываем все карточки в активных секциях
+                    activeSections.forEach(id => {
+                        const grid = document.getElementById(id);
+                        if (grid) {
+                            grid.querySelectorAll('.game-card').forEach(card => {
+                                card.style.display = 'block';
+                            });
+                        }
+                    });
+                }
+            }
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     filterBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
-
                     const filter = this.dataset.filter;
-                    gameGrids.forEach(grid => {
-                        const category = grid.dataset.category;
-                        if (filter === 'all') {
-                            grid.style.display = 'grid';
-                        } else {
-                            grid.style.display = (category === filter) ? 'grid' : 'none';
-                        }
-                    });
+                    applyFilter(filter);
                 });
             });
 
-            // SHOW MORE BUTTON (simulates loading more games)
-            const showMoreBtn = document.getElementById('showMoreBtn');
-            if (showMoreBtn) {
-                showMoreBtn.addEventListener('click', function() {
-                    const allGrid = document.querySelector('.game-grid[data-category="all"]');
-                    if (allGrid) {
-                        // Clone existing cards to simulate more games
-                        const cards = allGrid.querySelectorAll('.game-card');
-                        const cloneCount = 4;
-                        for (let i = 0; i < cloneCount; i++) {
-                            const clone = cards[i % cards.length].cloneNode(true);
-                            // Change title slightly to simulate different game
-                            const title = clone.querySelector('h3');
-                            if (title) {
-                                const names = ['Big Bass Bonanza', 'Wild West Gold', 'Dragon Tiger', 'Spaceman'];
-                                title.textContent = names[i % names.length] + ' ' + (i + 1);
-                            }
-                            allGrid.appendChild(clone);
-                        }
-                        // Update button text or disable after certain amount
-                        this.textContent = 'Показать еще игры 🔄';
-                        setTimeout(() => {
-                            this.textContent = 'Показать еще игры <i class="fas fa-chevron-down"></i>';
-                        }, 2000);
-                    }
-                });
-            }
-
-            // SEARCH FUNCTIONALITY
+            // ===== ПОИСК =====
             const searchInput = document.getElementById('gameSearch');
             const searchBtn = document.getElementById('searchBtn');
 
             function performSearch() {
                 const query = searchInput.value.toLowerCase().trim();
-                const allCards = document.querySelectorAll('.game-card');
-                allCards.forEach(card => {
-                    const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
-                    const provider = card.querySelector('.provider')?.textContent?.toLowerCase() || '';
-                    const match = title.includes(query) || provider.includes(query);
-                    card.style.display = match ? 'block' : 'none';
-                });
-                // Reset filters UI
+                const allCards = getAllGameCards();
+
+                // Сброс фильтров визуально
                 filterBtns.forEach(b => b.classList.remove('active'));
                 document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
+
+                // Показываем все секции
+                ['slotsGrid', 'liveGrid', 'tableGrid', 'allGamesGrid'].forEach(id => {
+                    const grid = document.getElementById(id);
+                    if (grid) grid.style.display = 'grid';
+                });
+
+                if (!query) {
+                    allCards.forEach(card => card.style.display = 'block');
+                    return;
+                }
+
+                allCards.forEach(card => {
+                    const name = card.dataset.name || '';
+                    const provider = card.dataset.provider || '';
+                    const match = name.includes(query) || provider.includes(query);
+                    card.style.display = match ? 'block' : 'none';
+                });
             }
 
             if (searchBtn) {
@@ -1240,6 +1162,10 @@
                     if (e.key === 'Enter') performSearch();
                 });
             }
+
+            // ===== ПЕРВОНАЧАЛЬНЫЙ ЗАПУСК =====
+            renderAllGames();
+
         })();
     </script>
 
