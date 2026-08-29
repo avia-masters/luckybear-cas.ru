@@ -203,13 +203,25 @@
             font-size: 18px;
         }
 
+        .btn.small {
+            padding: 6px 16px;
+            font-size: 13px;
+        }
+
         /* ===== PAGE HEADER ===== */
         .page-header {
             padding: 40px 0 20px;
+            background: linear-gradient(145deg, rgba(11, 26, 51, 0.6), rgba(15, 40, 71, 0.4));
+            border-radius: 0 0 30px 30px;
         }
         .page-header h1 {
             font-size: 38px;
             color: #ffffff;
+        }
+        .page-header h1 .highlight {
+            background: linear-gradient(135deg, #0d6efd, #4ab8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         .page-header p {
             color: #8aaac8;
@@ -217,12 +229,54 @@
             max-width: 700px;
         }
 
+        /* ===== FILTERS ===== */
+        .filters-section {
+            padding: 20px 0 10px;
+        }
+        .filters-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            align-items: center;
+            background: rgba(16, 35, 65, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 65, 124, 0.4);
+            border-radius: 16px;
+            padding: 16px 20px;
+        }
+        .filters-wrapper .filter-label {
+            color: #8aaac8;
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        .filter-btn {
+            background: rgba(26, 65, 124, 0.3);
+            border: 1px solid rgba(26, 65, 124, 0.3);
+            color: #8aaac8;
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        .filter-btn:hover {
+            border-color: #4ab8ff;
+            color: #4ab8ff;
+        }
+        .filter-btn.active {
+            background: rgba(13, 110, 253, 0.2);
+            border-color: #4ab8ff;
+            color: #4ab8ff;
+        }
+
         /* ===== BLOG GRID ===== */
         .blog-grid {
             display: grid;
             grid-template-columns: 2fr 1fr;
             gap: 40px;
-            padding: 20px 0 50px;
+            padding: 20px 0 30px;
         }
 
         .blog-main article {
@@ -230,8 +284,8 @@
             backdrop-filter: blur(8px);
             border: 1px solid rgba(26, 65, 124, 0.4);
             border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
+            padding: 28px 30px;
+            margin-bottom: 24px;
             transition: 0.3s;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
@@ -256,14 +310,14 @@
         }
         .blog-main article h2 {
             color: #ffffff;
-            font-size: 26px;
-            margin-bottom: 12px;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
         .blog-main article h2 a { color: #ffffff; }
         .blog-main article h2 a:hover { color: #4ab8ff; }
         .blog-main article p {
             color: #d0e4f8;
-            margin-bottom: 16px;
+            margin-bottom: 14px;
         }
         .blog-main article .read-more {
             color: #4ab8ff;
@@ -313,6 +367,51 @@
         }
         .blog-sidebar .widget .cta-box .btn {
             margin-top: 10px;
+        }
+
+        /* ===== PAGINATION ===== */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 0 20px;
+            flex-wrap: wrap;
+        }
+        .pagination .page-btn {
+            background: rgba(26, 65, 124, 0.3);
+            border: 1px solid rgba(26, 65, 124, 0.3);
+            color: #8aaac8;
+            padding: 8px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+            font-family: inherit;
+            min-width: 40px;
+            text-align: center;
+        }
+        .pagination .page-btn:hover {
+            border-color: #4ab8ff;
+            color: #4ab8ff;
+        }
+        .pagination .page-btn.active {
+            background: linear-gradient(135deg, #0d6efd, #4ab8ff);
+            border-color: transparent;
+            color: #ffffff;
+        }
+        .pagination .page-btn.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .pagination .page-btn.disabled:hover {
+            border-color: rgba(26, 65, 124, 0.3);
+            color: #8aaac8;
+        }
+        .pagination .page-info {
+            color: #8aaac8;
+            font-size: 14px;
+            padding: 0 12px;
         }
 
         /* ===== FOOTER CTA ===== */
@@ -447,17 +546,23 @@
                 padding-top: 12px;
                 border-top: 1px solid rgba(26, 65, 124, 0.3);
             }
+            .filters-wrapper {
+                flex-direction: column;
+                align-items: stretch;
+            }
             .footer-grid { grid-template-columns: 1fr; }
             .mobile-bar { display: flex; }
             .site-footer { padding-bottom: 80px; }
             .page-header h1 { font-size: 28px; }
             .footer-cta .container { flex-direction: column; text-align: center; }
             .blog-main article { padding: 20px; }
-            .blog-main article h2 { font-size: 22px; }
+            .blog-main article h2 { font-size: 20px; }
+            .pagination .page-btn { padding: 6px 12px; font-size: 13px; min-width: 34px; }
         }
 
         @media (max-width: 480px) {
             .page-header h1 { font-size: 24px; }
+            .blog-main article h2 { font-size: 18px; }
         }
 
         [hidden] { display: none !important; }
@@ -524,9 +629,24 @@
         <!-- ===== PAGE HEADER ===== -->
         <section class="page-header">
             <div class="container">
-                <span class="eyebrow">Полезные материалы</span>
-                <h1>Блог Lucky Bear Казино</h1>
+                <span class="eyebrow">📝 Полезные материалы</span>
+                <h1>Блог <span class="highlight">Lucky Bear</span> Казино</h1>
                 <p>Свежие новости, стратегии, обзоры слотов и турнирные анонсы для успешной игры.</p>
+            </div>
+        </section>
+
+        <!-- ===== FILTERS ===== -->
+        <section class="filters-section">
+            <div class="container">
+                <div class="filters-wrapper">
+                    <span class="filter-label"><i class="fas fa-filter"></i> Категория:</span>
+                    <button class="filter-btn active" data-filter="all">Все статьи</button>
+                    <button class="filter-btn" data-filter="Новости">Новости</button>
+                    <button class="filter-btn" data-filter="Стратегии">Стратегии</button>
+                    <button class="filter-btn" data-filter="Обзоры игр">Обзоры игр</button>
+                    <button class="filter-btn" data-filter="Бонусы">Бонусы</button>
+                    <button class="filter-btn" data-filter="Турниры">Турниры</button>
+                </div>
             </div>
         </section>
 
@@ -534,71 +654,8 @@
         <div class="container blog-grid">
 
             <!-- ===== MAIN COLUMN ===== -->
-            <div class="blog-main">
-
-                <article>
-                    <div class="meta">
-                        <span><i class="far fa-calendar-alt"></i> 28 августа 2026</span>
-                        <span><i class="far fa-user"></i> Админ</span>
-                        <span class="tag">Новости</span>
-                    </div>
-                    <h2><a href="blog-post-1.html">Запущен турнир «Битва Медведей» с призовым фондом 5 000 000 ₽</a></h2>
-                    <p>Lucky Bear Казино объявляет о старте нового турнира, который продлится весь сентябрь. Участвуйте в «Битве Медведей», соревнуйтесь с другими игроками и делить призовой фонд. Топ-100 участников получат денежные призы и бонусы. Для участия достаточно играть в любые слоты. Чем больше ставок — тем выше ваше место в таблице лидеров. Не упустите шанс!</p>
-                    <a href="blog-post-1.html" class="read-more">Читать далее →</a>
-                </article>
-
-                <article>
-                    <div class="meta">
-                        <span><i class="far fa-calendar-alt"></i> 25 августа 2026</span>
-                        <span><i class="far fa-user"></i> Екатерина С.</span>
-                        <span class="tag">Стратегии</span>
-                    </div>
-                    <h2><a href="blog-post-2.html">5 советов по управлению банкроллом в слотах</a></h2>
-                    <p>Грамотное управление бюджетом — ключ к долгой и комфортной игре. В этой статье мы делимся проверенными стратегиями: как установить лимиты, правильно выбирать размер ставки и вовремя остановиться. Эти простые правила помогут вам получать больше удовольствия от игры и минимизировать риски.</p>
-                    <a href="blog-post-2.html" class="read-more">Читать далее →</a>
-                </article>
-
-                <article>
-                    <div class="meta">
-                        <span><i class="far fa-calendar-alt"></i> 22 августа 2026</span>
-                        <span><i class="far fa-user"></i> Админ</span>
-                        <span class="tag">Обзоры игр</span>
-                    </div>
-                    <h2><a href="blog-post-3.html">Обзор слота Anubis Wrath: стоит ли играть?</a></h2>
-                    <p>Популярный слот от Pragmatic Play с египетской тематикой. Мы протестировали игру, оценили волатильность, частоту бонусных раундов и потенциал крупных выигрышей. Узнайте, какие символы самые ценные, как активировать бесплатные вращения и почему этот слот уже стал хитом в Lucky Bear Казино.</p>
-                    <a href="blog-post-3.html" class="read-more">Читать далее →</a>
-                </article>
-
-                <article>
-                    <div class="meta">
-                        <span><i class="far fa-calendar-alt"></i> 19 августа 2026</span>
-                        <span><i class="far fa-user"></i> Дмитрий К.</span>
-                        <span class="tag">Бонусы</span>
-                    </div>
-                    <h2><a href="blog-post-4.html">Как получить 500% на депозит и не потерять бонус</a></h2>
-                    <p>Подробная инструкция по активации мега-бонуса Lucky Bear. Рассказываем про условия вейджера, сроки отыгрыша и даем советы, как эффективно использовать бонусные средства. Вы узнаете, на какие игры лучше ставить для выполнения условий и как избежать типичных ошибок новичков.</p>
-                    <a href="blog-post-4.html" class="read-more">Читать далее →</a>
-                </article>
-
-                <article>
-                    <div class="meta">
-                        <span><i class="far fa-calendar-alt"></i> 16 августа 2026</span>
-                        <span><i class="far fa-user"></i> Админ</span>
-                        <span class="tag">Новости</span>
-                    </div>
-                    <h2><a href="blog-post-5.html">Новая коллаборация с провайдером Evolution Gaming: эксклюзивные игры</a></h2>
-                    <p>Lucky Bear Казино расширяет игровой каталог благодаря партнерству с Evolution Gaming. Теперь в нашем лобби доступны эксклюзивные версии Crazy Time и Speed Winner. Играйте в обновленные шоу с увеличенными множителями и специальными бонусными раундами. Только для игроков Lucky Bear!</p>
-                    <a href="blog-post-5.html" class="read-more">Читать далее →</a>
-                </article>
-
-                <!-- ===== PAGINATION ===== -->
-                <div style="display:flex; gap:12px; justify-content:center; margin-top:20px;">
-                    <a href="#" class="btn ghost" style="padding:8px 20px; font-size:14px;">« Предыдущие</a>
-                    <a href="#" class="btn primary" style="padding:8px 20px; font-size:14px;">1</a>
-                    <a href="#" class="btn ghost" style="padding:8px 20px; font-size:14px;">2</a>
-                    <a href="#" class="btn ghost" style="padding:8px 20px; font-size:14px;">Следующие »</a>
-                </div>
-
+            <div class="blog-main" id="blogList">
+                <!-- Статьи будут вставлены через JavaScript -->
             </div>
 
             <!-- ===== SIDEBAR ===== -->
@@ -617,12 +674,8 @@
                 <!-- Widget: Популярные статьи -->
                 <div class="widget">
                     <h3>🔥 Популярное</h3>
-                    <ul>
-                        <li><a href="blog-post-1.html">Турнир «Битва Медведей»</a></li>
-                        <li><a href="blog-post-3.html">Обзор Anubis Wrath</a></li>
-                        <li><a href="blog-post-2.html">Управление банкроллом</a></li>
-                        <li><a href="blog-post-4.html">Как отыграть бонус</a></li>
-                        <li><a href="blog-post-6.html">Топ-5 стратегий в рулетку</a></li>
+                    <ul id="popularPosts">
+                        <!-- Заполняется через JS -->
                     </ul>
                 </div>
 
@@ -630,12 +683,11 @@
                 <div class="widget">
                     <h3>📂 Категории</h3>
                     <ul>
-                        <li><a href="#">Новости (12)</a></li>
-                        <li><a href="#">Обзоры игр (8)</a></li>
-                        <li><a href="#">Стратегии (10)</a></li>
-                        <li><a href="#">Бонусы (6)</a></li>
-                        <li><a href="#">Турниры (7)</a></li>
-                        <li><a href="#">Ответственная игра (3)</a></li>
+                        <li><a href="#" data-filter="Новости">Новости (12)</a></li>
+                        <li><a href="#" data-filter="Обзоры игр">Обзоры игр (8)</a></li>
+                        <li><a href="#" data-filter="Стратегии">Стратегии (10)</a></li>
+                        <li><a href="#" data-filter="Бонусы">Бонусы (6)</a></li>
+                        <li><a href="#" data-filter="Турниры">Турниры (7)</a></li>
                     </ul>
                 </div>
 
@@ -713,7 +765,7 @@
     <!-- ===== SCRIPTS ===== -->
     <script>
         (function() {
-            // MOBILE MENU TOGGLE
+            // ===== MOBILE MENU =====
             const menuBtn = document.querySelector('[data-menu]');
             const nav = document.querySelector('[data-nav]');
             if (menuBtn && nav) {
@@ -725,7 +777,7 @@
                 });
             }
 
-            // AGE GATE
+            // ===== AGE GATE =====
             const gate = document.querySelector('[data-age-gate]');
             if (gate) {
                 const acceptBtn = gate.querySelector('[data-age-accept]');
@@ -747,6 +799,228 @@
                     }
                 } catch(e) {}
             }
+
+            // ===== BLOG DATA (32 статьи) =====
+            const blogPosts = [
+                // Страница 1 (посты 1-10)
+                { id: 1, title: 'Запущен турнир «Битва Медведей» с призовым фондом 5 000 000 ₽', category: 'Новости', date: '28 августа 2026', author: 'Админ', preview: 'Lucky Bear Казино объявляет о старте нового турнира, который продлится весь сентябрь. Участвуйте в «Битве Медведей», соревнуйтесь с другими игроками и делите призовой фонд. Топ-100 участников получат денежные призы и бонусы. Для участия достаточно играть в любые слоты. Чем больше ставок — тем выше ваше место в таблице лидеров. Не упустите шанс!' },
+                { id: 2, title: '5 советов по управлению банкроллом в слотах', category: 'Стратегии', date: '25 августа 2026', author: 'Екатерина С.', preview: 'Грамотное управление бюджетом — ключ к долгой и комфортной игре. В этой статье мы делимся проверенными стратегиями: как установить лимиты, правильно выбирать размер ставки и вовремя остановиться. Эти простые правила помогут вам получать больше удовольствия от игры и минимизировать риски.' },
+                { id: 3, title: 'Обзор слота Anubis Wrath: стоит ли играть?', category: 'Обзоры игр', date: '22 августа 2026', author: 'Админ', preview: 'Популярный слот от Pragmatic Play с египетской тематикой. Мы протестировали игру, оценили волатильность, частоту бонусных раундов и потенциал крупных выигрышей. Узнайте, какие символы самые ценные, как активировать бесплатные вращения и почему этот слот уже стал хитом в Lucky Bear Казино.' },
+                { id: 4, title: 'Как получить 500% на депозит и не потерять бонус', category: 'Бонусы', date: '19 августа 2026', author: 'Дмитрий К.', preview: 'Подробная инструкция по активации мега-бонуса Lucky Bear. Рассказываем про условия вейджера, сроки отыгрыша и даем советы, как эффективно использовать бонусные средства. Вы узнаете, на какие игры лучше ставить для выполнения условий и как избежать типичных ошибок новичков.' },
+                { id: 5, title: 'Новая коллаборация с провайдером Evolution Gaming', category: 'Новости', date: '16 августа 2026', author: 'Админ', preview: 'Lucky Bear Казино расширяет игровой каталог благодаря партнерству с Evolution Gaming. Теперь в нашем лобби доступны эксклюзивные версии Crazy Time и Speed Winner. Играйте в обновленные шоу с увеличенными множителями и специальными бонусными раундами. Только для игроков Lucky Bear!' },
+                { id: 6, title: 'Топ-5 стратегий для игры в рулетку', category: 'Стратегии', date: '14 августа 2026', author: 'Михаил Ш.', preview: 'Рулетка — одна из самых популярных игр в казино. В этой статье мы разберем 5 эффективных стратегий: Мартингейл, Фибоначчи, Д\'Аламбер и другие. Узнайте, как минимизировать риски и увеличить шансы на успех. Помните: никакая стратегия не гарантирует 100% выигрыша, но помогает играть более осознанно.' },
+                { id: 7, title: 'Crazy Time: как выиграть крупный приз?', category: 'Обзоры игр', date: '12 августа 2026', author: 'Алексей М.', preview: 'Crazy Time — это не просто игра, а целое шоу с огромными множителями. Мы расскажем, как работает бонусный раунд, какие стратегии используют опытные игроки и на что обратить внимание перед началом игры. Узнайте, как увеличить свои шансы на крупный выигрыш!' },
+                { id: 8, title: 'Программа лояльности VIP: преимущества для постоянных игроков', category: 'Бонусы', date: '10 августа 2026', author: 'Админ', preview: 'VIP-программа Lucky Bear Казино предлагает уникальные привилегии: повышенный кешбэк до 70%, персональные бонусы, ускоренный вывод средств и личного менеджера. Узнайте, как стать частью элитного клуба и какие преимущества вас ждут.' },
+                { id: 9, title: 'Турнир «Космический Джекпот» стартует 1 сентября', category: 'Турниры', date: '08 августа 2026', author: 'Админ', preview: 'Новый турнир с космическим призовым фондом 3 000 000 ₽ стартует 1 сентября. Участвуйте в турнире «Космический Джекпот», играйте в любые слоты и зарабатывайте баллы. Чем выше ваша активность, тем больше шансов на победу. Регистрируйтесь и готовьтесь к старту!' },
+                { id: 10, title: 'Как выбрать слот с высоким RTP?', category: 'Стратегии', date: '06 августа 2026', author: 'Екатерина С.', preview: 'RTP (Return to Player) — это процент возврата игроку. В этой статье мы расскажем, как выбирать слоты с высоким RTP, почему это важно и какие игры в Lucky Bear Казино предлагают лучшие показатели. Узнайте, как увеличить свои шансы на долгосрочную игру.' },
+                // Страница 2 (посты 11-20)
+                { id: 11, title: 'Новые игры от Pragmatic Play уже в казино', category: 'Новости', date: '04 августа 2026', author: 'Админ', preview: 'В игровой каталог Lucky Bear Казино добавлены свежие новинки от Pragmatic Play. Три новых слота с уникальной механикой, высокими множителями и бонусными раундами. Рассказываем, что нового появилось в казино и какие игры стоит попробовать в первую очередь.' },
+                { id: 12, title: 'Играем в блэкджек: стратегии для начинающих', category: 'Стратегии', date: '02 августа 2026', author: 'Дмитрий К.', preview: 'Блэкджек — игра, в которой стратегия имеет решающее значение. В этой статье мы расскажем базовую стратегию для новичков, объясним, когда нужно брать карту, а когда останавливаться. Эти простые правила помогут вам принимать правильные решения за столом.' },
+                { id: 13, title: 'Обзор Speed Winner: новый хит от Evolution Gaming', category: 'Обзоры игр', date: '30 июля 2026', author: 'Админ', preview: 'Speed Winner — это новый слот от Evolution Gaming, который уже завоевал популярность среди игроков. Мы протестировали игру, изучили механику, бонусы и потенциал выигрышей. Узнайте, почему этот слот стоит вашего внимания.' },
+                { id: 14, title: 'Бонус на пополнение до 500% действует до конца августа', category: 'Бонусы', date: '28 июля 2026', author: 'Админ', preview: 'Только до конца августа действует специальное предложение: бонус до 500% на первый депозит. Не упустите возможность увеличить свой банкролл в 5 раз. Подробные условия акции и как её активировать читайте в нашей статье.' },
+                { id: 15, title: 'Встречайте осенний турнир «Лига Чемпионов»', category: 'Турниры', date: '26 июля 2026', author: 'Админ', preview: 'Осенний турнир «Лига Чемпионов» стартует 1 октября. Призовой фонд — 4 000 000 ₽. Участие бесплатное, достаточно играть в любые игры казино. Топ-50 игроков получат денежные призы и бонусы. Готовьтесь к турниру!' },
+                { id: 16, title: 'Как играть в live-казино: советы для новичков', category: 'Стратегии', date: '24 июля 2026', author: 'Екатерина С.', preview: 'Live-казино с реальными дилерами — это уникальный опыт. Мы расскажем, как подготовиться к игре, какие существуют правила поведения за столом и на что обратить внимание. Эти советы помогут вам чувствовать себя уверенно в live-казино.' },
+                { id: 17, title: 'Обзор Sweet Bonanza: сладкая жизнь в слоте', category: 'Обзоры игр', date: '22 июля 2026', author: 'Ольга В.', preview: 'Sweet Bonanza — один из самых популярных слотов от Pragmatic Play. Мы расскажем о механике игры, бонусных раундах и множителях. Узнайте, как сорвать крупный куш в этом сладком слоте.' },
+                { id: 18, title: 'Как пополнить счёт и вывести деньги в Lucky Bear', category: 'Бонусы', date: '20 июля 2026', author: 'Админ', preview: 'Пошаговая инструкция по пополнению и выводу средств. Какие методы доступны, минимальные и максимальные суммы, скорость обработки транзакций. Мы расскажем всё, что нужно знать о финансовых операциях в Lucky Bear Казино.' },
+                { id: 19, title: 'Анонс: новый провайдер Play\'n GO в казино', category: 'Новости', date: '18 июля 2026', author: 'Админ', preview: 'В ближайшее время в Lucky Bear Казино появятся игры от Play\'n GO. Какие слоты стоит ждать в первую очередь и чем этот провайдер так популярен — читайте в нашем анонсе.' },
+                { id: 20, title: 'Управление эмоциями в азартных играх', category: 'Стратегии', date: '16 июля 2026', author: 'Михаил Ш.', preview: 'Эмоциональный контроль — важная часть успешной игры. Мы даем советы, как сохранять хладнокровие, не поддаваться азарту и принимать взвешенные решения. Эти навыки помогут вам играть ответственно и получать удовольствие.' },
+                // Страница 3 (посты 21-30)
+                { id: 21, title: 'Итоги турнира «Битва Медведей»: кто победил?', category: 'Турниры', date: '14 июля 2026', author: 'Админ', preview: 'Подводим итоги первого турнира «Битва Медведей». Кто стал победителем, какие призы были разыграны и как проходило соревнование. Читайте интервью с победителями и узнайте их секреты успеха.' },
+                { id: 22, title: 'Обзор Gates of Olympus: божественные выигрыши', category: 'Обзоры игр', date: '12 июля 2026', author: 'Алексей М.', preview: 'Gates of Olympus — мифологический слот от Pragmatic Play с множителями до 500x. Мы тестировали игру, изучали бонусы и делимся мнением. Стоит ли играть в этот слот и на что обратить внимание — читайте в обзоре.' },
+                { id: 23, title: 'Мобильное приложение Lucky Bear: обзор и возможности', category: 'Новости', date: '10 июля 2026', author: 'Админ', preview: 'Узнайте все о мобильном приложении Lucky Bear Казино: какие игры доступны, скорость работы, удобство интерфейса и как скачать приложение на iOS и Android. Играйте в любимые слоты где угодно!' },
+                { id: 24, title: 'Стратегия Мартингейла: плюсы и минусы', category: 'Стратегии', date: '08 июля 2026', author: 'Дмитрий К.', preview: 'Стратегия Мартингейла — одна из самых известных в мире азартных игр. Мы разбираем её плюсы и минусы, объясняем, где она работает, а где может привести к проигрышам. Узнайте, подходит ли вам эта стратегия.' },
+                { id: 25, title: 'Новые слоты с прогрессивным джекпотом', category: 'Обзоры игр', date: '06 июля 2026', author: 'Админ', preview: 'В каталоге Lucky Bear Казино появились новые слоты с прогрессивным джекпотом. Какие игры предлагают крупные призы, как участвовать в розыгрыше джекпота и что нужно для победы — читайте в нашем обзоре.' },
+                { id: 26, title: 'Вейджер и условия отыгрыша бонусов', category: 'Бонусы', date: '04 июля 2026', author: 'Екатерина С.', preview: 'Что такое вейджер и как правильно отыгрывать бонусы? Мы объясняем все нюансы: какие игры учитываются, как быстро выполнить условия и не потерять бонусные средства. Полезная информация для всех игроков.' },
+                { id: 27, title: 'Турнир «Новогодний Кубок»: подготовка к праздникам', category: 'Турниры', date: '02 июля 2026', author: 'Админ', preview: 'Начинаем подготовку к новогоднему турниру «Новогодний Кубок». Призовой фонд составит 6 000 000 ₽. Узнайте, как принять участие, какие игры войдут в турнирную сетку и какие призы вас ждут.' },
+                { id: 28, title: 'Игры с живыми дилерами: как это работает', category: 'Обзоры игр', date: '30 июня 2026', author: 'Ольга В.', preview: 'Live-игры с реальными дилерами — это современный формат казино. Мы объясняем, как транслируются игры, как взаимодействовать с дилером и какие игры доступны в формате live. Погрузитесь в мир настоящего казино!' },
+                { id: 29, title: 'Психология азартных игр: как не проиграться', category: 'Стратегии', date: '28 июня 2026', author: 'Михаил Ш.', preview: 'Психология играет огромную роль в азартных играх. Мы рассказываем о когнитивных искажениях, которые мешают игрокам, и даем советы, как оставаться в выигрыше и не поддаваться эмоциям.' },
+                { id: 30, title: 'Обзор Book of Dead: классика жанра', category: 'Обзоры игр', date: '26 июня 2026', author: 'Админ', preview: 'Book of Dead — культовый слот от Play\'n GO. Мы изучили его механику, бонусы и потенциал выигрышей. Узнайте, почему этот слот считается одним из лучших в мире и стоит ли в него играть.' },
+                // Страница 4 (посты 31-32)
+                { id: 31, title: 'Акция «Приведи друга»: получи бонус 1000 ₽', category: 'Бонусы', date: '24 июня 2026', author: 'Админ', preview: 'Новая акция «Приведи друга» в Lucky Bear Казино. Приглашайте друзей и получайте бонус 1000 ₽ на счёт. Рассказываем, как участвовать в акции и какие условия необходимо выполнить.' },
+                { id: 32, title: 'Обзор игр от NetEnt: что стоит попробовать', category: 'Обзоры игр', date: '22 июня 2026', author: 'Дмитрий К.', preview: 'NetEnt — один из ведущих провайдеров игр для казино. Мы выбрали 5 лучших слотов от этого разработчика, которые есть в Lucky Bear Казино. Узнайте, какие игры принесут вам наибольший доход.' }
+            ];
+
+            // ===== ПЕРЕМЕННЫЕ ПАГИНАЦИИ =====
+            const postsPerPage = 10;
+            let currentPage = 1;
+            let filteredPosts = [...blogPosts];
+            let currentFilter = 'all';
+
+            // ===== ФУНКЦИЯ РЕНДЕРИНГА СТАТЕЙ =====
+            function renderBlogPosts(page) {
+                const container = document.getElementById('blogList');
+                if (!container) return;
+
+                const start = (page - 1) * postsPerPage;
+                const end = start + postsPerPage;
+                const pagePosts = filteredPosts.slice(start, end);
+
+                if (pagePosts.length === 0) {
+                    container.innerHTML = `
+                        <div style="text-align:center; padding:60px 20px; color:#8aaac8; background:rgba(16,35,65,0.4); border-radius:16px; border:1px solid rgba(26,65,124,0.3);">
+                            <i class="fas fa-newspaper" style="font-size:48px; color:#3a5a7a; margin-bottom:16px; display:block;"></i>
+                            <p style="font-size:18px;">Статьи не найдены</p>
+                            <p style="font-size:14px; margin-top:4px;">Попробуйте изменить категорию</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                let html = '';
+                pagePosts.forEach(post => {
+                    const tagClass = post.category === 'Новости' ? 'Новости' :
+                                    post.category === 'Стратегии' ? 'Стратегии' :
+                                    post.category === 'Обзоры игр' ? 'Обзоры игр' :
+                                    post.category === 'Бонусы' ? 'Бонусы' : 'Турниры';
+                    html += `
+                        <article>
+                            <div class="meta">
+                                <span><i class="far fa-calendar-alt"></i> ${post.date}</span>
+                                <span><i class="far fa-user"></i> ${post.author}</span>
+                                <span class="tag">${post.category}</span>
+                            </div>
+                            <h2><a href="blog-post-${post.id}.html">${post.title}</a></h2>
+                            <p>${post.preview}</p>
+                            <a href="blog-post-${post.id}.html" class="read-more">Читать далее →</a>
+                        </article>
+                    `;
+                });
+                container.innerHTML = html;
+            }
+
+            // ===== РЕНДЕРИНГ ПОПУЛЯРНЫХ СТАТЕЙ =====
+            function renderPopularPosts() {
+                const container = document.getElementById('popularPosts');
+                if (!container) return;
+                const popular = blogPosts.slice(0, 5);
+                let html = '';
+                popular.forEach(post => {
+                    html += `<li><a href="blog-post-${post.id}.html">${post.title}</a></li>`;
+                });
+                container.innerHTML = html;
+            }
+
+            // ===== РЕНДЕРИНГ ПАГИНАЦИИ =====
+            function renderPagination() {
+                const container = document.getElementById('pagination');
+                if (!container) return;
+
+                const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
+                if (totalPages <= 1) {
+                    // Если статей меньше 10, пагинацию не показываем
+                    const existing = document.querySelector('.pagination-container');
+                    if (existing) existing.innerHTML = '';
+                    return;
+                }
+
+                // Создаём контейнер если его нет
+                let pagContainer = document.querySelector('.pagination-container');
+                if (!pagContainer) {
+                    pagContainer = document.createElement('div');
+                    pagContainer.className = 'pagination-container';
+                    const blogMain = document.querySelector('.blog-main');
+                    blogMain.parentNode.insertBefore(pagContainer, blogMain.nextSibling);
+                }
+
+                let html = '<div class="pagination">';
+
+                // Назад
+                html += `<button class="page-btn ${currentPage === 1 ? 'disabled' : ''}" data-page="${currentPage - 1}" ${currentPage === 1 ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-left"></i>
+                </button>`;
+
+                // Номера страниц
+                const maxVisible = 7;
+                let startPage = Math.max(1, currentPage - Math.floor(maxVisible / 2));
+                let endPage = Math.min(totalPages, startPage + maxVisible - 1);
+                if (endPage - startPage < maxVisible - 1) {
+                    startPage = Math.max(1, endPage - maxVisible + 1);
+                }
+
+                if (startPage > 1) {
+                    html += `<button class="page-btn" data-page="1">1</button>`;
+                    if (startPage > 2) html += `<span class="page-info">...</span>`;
+                }
+
+                for (let i = startPage; i <= endPage; i++) {
+                    html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" data-page="${i}">${i}</button>`;
+                }
+
+                if (endPage < totalPages) {
+                    if (endPage < totalPages - 1) html += `<span class="page-info">...</span>`;
+                    html += `<button class="page-btn" data-page="${totalPages}">${totalPages}</button>`;
+                }
+
+                // Вперёд
+                html += `<button class="page-btn ${currentPage === totalPages ? 'disabled' : ''}" data-page="${currentPage + 1}" ${currentPage === totalPages ? 'disabled' : ''}>
+                    <i class="fas fa-chevron-right"></i>
+                </button>`;
+
+                // Информация
+                const start = (currentPage - 1) * postsPerPage + 1;
+                const end = Math.min(currentPage * postsPerPage, filteredPosts.length);
+                html += `<span class="page-info">${start}-${end} из ${filteredPosts.length}</span>`;
+
+                html += '</div>';
+                pagContainer.innerHTML = html;
+
+                // Обработка кликов по пагинации
+                pagContainer.querySelectorAll('.page-btn:not(.disabled)').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const page = parseInt(this.dataset.page);
+                        if (page && page !== currentPage && page >= 1 && page <= totalPages) {
+                            currentPage = page;
+                            renderBlogPosts(currentPage);
+                            renderPagination();
+                            window.scrollTo({ top: document.querySelector('.page-header').offsetTop - 60, behavior: 'smooth' });
+                        }
+                    });
+                });
+            }
+
+            // ===== ФИЛЬТРАЦИЯ =====
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.filter;
+
+                    if (currentFilter === 'all') {
+                        filteredPosts = [...blogPosts];
+                    } else {
+                        filteredPosts = blogPosts.filter(p => p.category === currentFilter);
+                    }
+
+                    currentPage = 1;
+                    renderBlogPosts(currentPage);
+                    renderPagination();
+                });
+            });
+
+            // ===== КЛИКИ ПО КАТЕГОРИЯМ В САЙДБАРЕ =====
+            document.querySelectorAll('.blog-sidebar .widget ul li a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const filter = this.dataset.filter;
+                    if (filter) {
+                        document.querySelectorAll('.filter-btn').forEach(b => {
+                            b.classList.remove('active');
+                            if (b.dataset.filter === filter) b.classList.add('active');
+                        });
+                        currentFilter = filter;
+                        filteredPosts = filter === 'all' ? [...blogPosts] : blogPosts.filter(p => p.category === filter);
+                        currentPage = 1;
+                        renderBlogPosts(currentPage);
+                        renderPagination();
+                    }
+                });
+            });
+
+            // ===== ПЕРВОНАЧАЛЬНЫЙ ЗАПУСК =====
+            renderPopularPosts();
+            renderBlogPosts(currentPage);
+            renderPagination();
+
         })();
     </script>
 
