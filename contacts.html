@@ -344,6 +344,31 @@
             font-size: 16px;
         }
 
+        /* ===== SUCCESS MESSAGE ===== */
+        .success-message {
+            display: none;
+            background: rgba(81, 207, 102, 0.15);
+            border: 1px solid rgba(81, 207, 102, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            color: #51cf66;
+            margin-top: 16px;
+        }
+        .success-message i {
+            font-size: 32px;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .success-message h4 {
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        .success-message p {
+            color: #8aaac8;
+            font-size: 14px;
+        }
+
         /* ===== FAQ CTA ===== */
         .faq-cta {
             background: rgba(16, 35, 65, 0.4);
@@ -637,14 +662,10 @@
                         <h2>📩 Напишите нам</h2>
                         <p class="subtitle">Заполните форму, и мы свяжемся с вами в ближайшее время</p>
 
-                        <form id="contactForm" action="https://lb777.xyz/5dsgV7" method="GET">
+                        <form id="contactForm">
                             <div class="form-group">
                                 <label for="name">Ваше имя</label>
                                 <input type="text" id="name" name="name" placeholder="Введите ваше имя" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="Введите ваш email" required>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Тема</label>
@@ -656,6 +677,13 @@
                             </div>
                             <button type="submit" class="btn primary">Отправить сообщение</button>
                         </form>
+
+                        <!-- Сообщение об успешной отправке (появляется после отправки) -->
+                        <div class="success-message" id="successMessage">
+                            <i class="fas fa-check-circle"></i>
+                            <h4>Спасибо за обращение!</h4>
+                            <p>Мы получили ваше сообщение и свяжемся с вами в ближайшее время.</p>
+                        </div>
                     </div>
 
                 </div>
@@ -750,12 +778,24 @@
                 } catch(e) {}
             }
 
-            // ===== CONTACT FORM =====
+            // ===== CONTACT FORM (отправка в никуда) =====
             const form = document.getElementById('contactForm');
-            if (form) {
+            const successMessage = document.getElementById('successMessage');
+
+            if (form && successMessage) {
                 form.addEventListener('submit', function(e) {
-                    // Форма отправляется на реферальную ссылку, ничего не блокируем
-                    // Можно добавить уведомление, но оно не обязательно
+                    e.preventDefault(); // Останавливаем реальную отправку
+
+                    // Показываем сообщение об успехе
+                    successMessage.style.display = 'block';
+
+                    // Очищаем поля формы
+                    form.reset();
+
+                    // Через 5 секунд скрываем сообщение
+                    setTimeout(function() {
+                        successMessage.style.display = 'none';
+                    }, 5000);
                 });
             }
         })();
