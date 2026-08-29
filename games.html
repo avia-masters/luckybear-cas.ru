@@ -343,6 +343,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            overflow: hidden;
         }
         .game-card .game-media .game-icon {
             position: absolute;
@@ -368,6 +369,16 @@
             color: #ffffff;
             font-weight: 600;
             backdrop-filter: blur(4px);
+        }
+        .game-card .game-media .game-badge.hot {
+            background: rgba(255, 107, 107, 0.8);
+        }
+        .game-card .game-media .game-badge.new {
+            background: rgba(81, 207, 102, 0.8);
+        }
+        .game-card .game-media .game-badge.vip {
+            background: rgba(252, 196, 25, 0.8);
+            color: #1a1a1a;
         }
         .game-card .game-info {
             padding: 14px 16px 16px;
@@ -991,7 +1002,7 @@
                         <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" style="display:block; color:inherit; text-decoration:none;">
                             <div class="game-media">
                                 <i class="fas ${game.icon} game-icon"></i>
-                                <span class="game-badge">${game.badge}</span>
+                                <span class="game-badge ${badgeClass}">${game.badge}</span>
                             </div>
                             <div class="game-info">
                                 <div class="provider"><i class="fas fa-check-circle" style="color:#4ab8ff;"></i> ${game.provider}</div>
@@ -1058,8 +1069,11 @@
                 const allCards = getAllGameCards();
                 const sections = ['slotsGrid', 'liveGrid', 'tableGrid', 'allGamesGrid'];
 
+                // Сбрасываем поиск
+                const searchInput = document.getElementById('gameSearch');
+                if (searchInput) searchInput.value = '';
+
                 if (filter === 'all') {
-                    // Показываем все секции и все карточки
                     sections.forEach(id => {
                         const grid = document.getElementById(id);
                         if (grid) grid.style.display = 'grid';
@@ -1071,17 +1085,14 @@
                 // Скрываем все карточки
                 allCards.forEach(card => card.style.display = 'none');
 
-                // Определяем, какие секции показывать
                 let activeSections = [];
                 if (filter === 'slots') activeSections = ['slotsGrid'];
                 else if (filter === 'live') activeSections = ['liveGrid'];
                 else if (filter === 'table') activeSections = ['tableGrid'];
                 else if (filter === 'new' || filter === 'hot') {
-                    // Для "Новинки" и "Популярные" показываем все секции с фильтром по бейджу
                     activeSections = ['slotsGrid', 'liveGrid', 'tableGrid', 'allGamesGrid'];
                 }
 
-                // Показываем нужные секции
                 sections.forEach(id => {
                     const grid = document.getElementById(id);
                     if (grid) {
@@ -1089,7 +1100,6 @@
                     }
                 });
 
-                // Если фильтр по бейджу
                 if (filter === 'new' || filter === 'hot') {
                     allCards.forEach(card => {
                         const badge = card.querySelector('.badge');
@@ -1102,7 +1112,6 @@
                         }
                     });
                 } else {
-                    // Для категорий показываем все карточки в активных секциях
                     activeSections.forEach(id => {
                         const grid = document.getElementById(id);
                         if (grid) {
