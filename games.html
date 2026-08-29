@@ -3,19 +3,21 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Игры Lucky Bear Казино — Слоты и Live-казино</title>
-    <meta name="description" content="Все игры Lucky Bear Казино: слоты, live-казино, быстрые игры. Только лучшие провайдеры: Pragmatic Play, Evolution Gaming, BGaming и другие.">
+    <title>Игры Lucky Bear Казино — Более 3000 слотов и live-игр</title>
+    <meta name="description" content="Огромный выбор игр в Lucky Bear Казино: слоты, рулетка, блэкджек, live-казино от топовых провайдеров. Играйте на реальные деньги с бонусом 500%.">
     <link rel="canonical" href="https://luckybear-cas.ru/games.html">
     <link rel="icon" href="images/logo.png" type="image/png">
     <link rel="apple-touch-icon" href="images/logo.png">
-    
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Игры Lucky Bear Казино — Слоты и Live-казино">
-    <meta property="og:description" content="Все игры Lucky Bear Казино: слоты, live-казино, быстрые игры от топ-провайдеров.">
+    <meta property="og:title" content="Игры Lucky Bear Казино — 3000+ слотов и live-казино">
+    <meta property="og:description" content="Играйте в лучшие слоты, рулетку, блэкджек и live-игры от Pragmatic Play, Evolution Gaming и других провайдеров.">
     <meta property="og:url" content="https://luckybear-cas.ru/games.html">
     <meta property="og:image" content="https://luckybear-cas.ru/images/logo.png">
     <meta name="twitter:card" content="summary_large_image">
 
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <!-- Yandex.Metrika counter -->
@@ -40,17 +42,12 @@
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(145deg, #0b1a33 0%, #0f2847 50%, #0b1a33 100%);
             color: #d0e4f8;
             line-height: 1.6;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
         .container {
@@ -69,142 +66,6 @@
             text-shadow: 0 0 25px rgba(74, 184, 255, 0.2);
         }
 
-        /* ===== PARTICLES ===== */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, rgba(74, 184, 255, 0.12), transparent 70%);
-            border-radius: 50%;
-            animation: floatParticle linear infinite;
-        }
-
-        @keyframes floatParticle {
-            0% {
-                transform: translateY(100vh) translateX(0) scale(0.3);
-                opacity: 0;
-            }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% {
-                transform: translateY(-10vh) translateX(80px) scale(1);
-                opacity: 0;
-            }
-        }
-
-        /* ===== GLOW ORBS ===== */
-        .glow-orb {
-            position: fixed;
-            border-radius: 50%;
-            filter: blur(80px);
-            pointer-events: none;
-            z-index: 0;
-            animation: orbFloat 10s ease-in-out infinite alternate;
-        }
-
-        .glow-orb.orb1 {
-            width: 500px;
-            height: 500px;
-            background: rgba(13, 110, 253, 0.06);
-            top: -150px;
-            right: -100px;
-        }
-
-        .glow-orb.orb2 {
-            width: 400px;
-            height: 400px;
-            background: rgba(74, 184, 255, 0.04);
-            bottom: -100px;
-            left: -100px;
-            animation-delay: 5s;
-        }
-
-        .glow-orb.orb3 {
-            width: 300px;
-            height: 300px;
-            background: rgba(13, 110, 253, 0.03);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            animation-delay: 2s;
-            animation-duration: 15s;
-        }
-
-        @keyframes orbFloat {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(60px, 60px) scale(1.3); }
-        }
-
-        /* ===== SCROLL ANIMATIONS ===== */
-        .scroll-animate {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .scroll-animate.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .stagger-children > * {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .stagger-children.visible > *:nth-child(1) { transition-delay: 0.05s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.25s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(6) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(7) { transition-delay: 0.35s; opacity: 1; transform: translateY(0); }
-        .stagger-children.visible > *:nth-child(8) { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-
-        /* ===== PULSE ===== */
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-        }
-
-        .pulse {
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        /* ===== SHIMMER ===== */
-        @keyframes shimmer {
-            0% { background-position: -200% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .shimmer-text {
-            background: linear-gradient(90deg, #0d6efd, #4ab8ff, #0d6efd);
-            background-size: 200% auto;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s linear infinite;
-        }
-
-        /* ===== FLOATING ===== */
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        .float-animate {
-            animation: float 4s ease-in-out infinite;
-        }
-
         .skip {
             position: absolute;
             top: -100px;
@@ -218,7 +79,7 @@
         }
         .skip:focus { top: 0; }
 
-        /* ===== HEADER ===== */
+        /* ===== HEADER (sticky) ===== */
         .site-header {
             background: rgba(11, 26, 51, 0.85);
             backdrop-filter: blur(20px);
@@ -228,12 +89,6 @@
             top: 0;
             z-index: 100;
             box-shadow: 0 4px 40px rgba(0, 0, 0, 0.3);
-            animation: slideDown 0.6s ease;
-        }
-
-        @keyframes slideDown {
-            from { transform: translateY(-100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
         }
 
         .header-row {
@@ -276,22 +131,15 @@
             font-weight: 500;
             font-size: 15px;
             transition: 0.3s;
-            position: relative;
         }
-        .main-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #0d6efd, #4ab8ff);
-            transition: width 0.3s ease;
+        .main-nav a:hover {
+            color: #4ab8ff;
+            text-shadow: 0 0 20px rgba(74, 184, 255, 0.15);
         }
-        .main-nav a:hover::after,
-        .main-nav a.active::after { width: 100%; }
-        .main-nav a:hover { color: #4ab8ff; text-shadow: 0 0 20px rgba(74, 184, 255, 0.15); }
-        .main-nav a.active { color: #4ab8ff; }
+        .main-nav a.active {
+            color: #4ab8ff;
+            border-bottom: 2px solid #4ab8ff;
+        }
 
         .header-actions {
             display: flex;
@@ -306,7 +154,6 @@
             font-weight: 700;
             color: #4ab8ff;
             font-size: 13px;
-            animation: pulse 2s ease-in-out infinite;
         }
 
         /* ===== BUTTONS ===== */
@@ -315,13 +162,11 @@
             padding: 10px 24px;
             border-radius: 30px;
             font-weight: 600;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: 0.3s;
             border: none;
             cursor: pointer;
             font-size: 15px;
             text-align: center;
-            position: relative;
-            overflow: hidden;
         }
 
         .btn.primary {
@@ -332,24 +177,8 @@
             animation: gradientShift 3s ease infinite;
         }
         .btn.primary:hover {
-            transform: scale(1.04) translateY(-2px);
-            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.4);
-        }
-
-        .btn.primary::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-            animation: btnShine 3s ease-in-out infinite;
-        }
-
-        @keyframes btnShine {
-            0%, 100% { transform: translate(-30%, -30%) scale(0.5); opacity: 0; }
-            50% { transform: translate(30%, 30%) scale(1.2); opacity: 1; }
+            transform: scale(1.04);
+            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.35);
         }
 
         @keyframes gradientShift {
@@ -367,203 +196,267 @@
             border-color: #4ab8ff;
             color: #4ab8ff;
             box-shadow: 0 0 30px rgba(74, 184, 255, 0.05);
-            transform: translateY(-2px);
         }
 
-        .btn.large { padding: 14px 40px; font-size: 18px; }
+        .btn.large {
+            padding: 14px 40px;
+            font-size: 18px;
+        }
+
+        .btn.small {
+            padding: 6px 16px;
+            font-size: 13px;
+        }
 
         /* ===== PAGE HEADER ===== */
         .page-header {
-            padding: 40px 0 30px;
-            background: linear-gradient(145deg, rgba(11, 26, 51, 0.8), rgba(15, 40, 71, 0.6));
-            border-radius: 0 0 40px 40px;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
+            padding: 40px 0 20px;
+            background: linear-gradient(145deg, rgba(11, 26, 51, 0.6), rgba(15, 40, 71, 0.4));
+            border-radius: 0 0 30px 30px;
         }
-
         .page-header h1 {
             font-size: 38px;
-            font-weight: 800;
             color: #ffffff;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
         }
-
         .page-header h1 .highlight {
             background: linear-gradient(135deg, #0d6efd, #4ab8ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
         .page-header p {
-            font-size: 18px;
             color: #8aaac8;
-            max-width: 700px;
-            margin: 0 auto;
+            font-size: 18px;
+            max-width: 750px;
         }
 
-        /* ===== FILTER TABS ===== */
-        .filter-tabs {
+        /* ===== FILTERS ===== */
+        .filters-section {
+            padding: 20px 0 10px;
+        }
+        .filters-wrapper {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
+            gap: 12px;
+            align-items: center;
+            background: rgba(16, 35, 65, 0.5);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 65, 124, 0.4);
+            border-radius: 16px;
+            padding: 16px 20px;
+        }
+        .filters-wrapper .filter-label {
+            color: #8aaac8;
+            font-size: 14px;
+            font-weight: 600;
+            margin-right: 8px;
+        }
+        .filter-btn {
+            background: rgba(26, 65, 124, 0.3);
+            border: 1px solid rgba(26, 65, 124, 0.3);
+            color: #8aaac8;
+            padding: 6px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        .filter-btn:hover {
+            border-color: #4ab8ff;
+            color: #4ab8ff;
+        }
+        .filter-btn.active {
+            background: rgba(13, 110, 253, 0.2);
+            border-color: #4ab8ff;
+            color: #4ab8ff;
+        }
+        .filter-search {
+            margin-left: auto;
+            display: flex;
+            gap: 8px;
+        }
+        .filter-search input {
+            background: rgba(11, 26, 51, 0.6);
+            border: 1px solid rgba(26, 65, 124, 0.4);
+            border-radius: 30px;
+            padding: 6px 16px;
+            color: #d0e4f8;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+            font-family: inherit;
+        }
+        .filter-search input::placeholder { color: #5a7a9a; }
+        .filter-search input:focus {
+            border-color: #4ab8ff;
+            box-shadow: 0 0 20px rgba(74, 184, 255, 0.05);
+        }
+        .filter-search .btn {
+            padding: 6px 18px;
+            font-size: 14px;
+        }
+
+        /* ===== GAME CATEGORIES ===== */
+        .category-section {
             padding: 30px 0 10px;
         }
-
-        .filter-tabs a {
-            padding: 8px 24px;
-            border-radius: 30px;
-            font-weight: 600;
-            font-size: 14px;
-            background: rgba(16, 35, 65, 0.5);
-            border: 1px solid rgba(26, 65, 124, 0.4);
-            color: #8aaac8;
-            transition: all 0.3s ease;
-        }
-
-        .filter-tabs a:hover,
-        .filter-tabs a.active {
-            background: linear-gradient(135deg, #0d6efd, #4ab8ff);
-            border-color: #4ab8ff;
+        .category-section h2 {
             color: #ffffff;
-            box-shadow: 0 4px 25px rgba(13, 110, 253, 0.3);
+            font-size: 28px;
+            margin-bottom: 6px;
+        }
+        .category-section .subtitle {
+            color: #8aaac8;
+            font-size: 16px;
+            margin-bottom: 20px;
         }
 
         /* ===== GAME GRID ===== */
         .game-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px 0 40px;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
         }
 
         .game-card {
             background: rgba(16, 35, 65, 0.6);
             backdrop-filter: blur(8px);
             border: 1px solid rgba(26, 65, 124, 0.4);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: 0.3s;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         }
-
         .game-card:hover {
             border-color: #4ab8ff;
-            transform: translateY(-6px) scale(1.02);
-            box-shadow: 0 12px 50px rgba(74, 184, 255, 0.08);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.08);
         }
-
-        .game-card .card-link {
+        .game-card a {
             display: block;
-            text-decoration: none;
             color: inherit;
+            text-decoration: none;
         }
-
-        .game-card .card-media {
+        .game-card .game-media {
             width: 100%;
-            padding-top: 56.25%;
+            padding-top: 75%;
             position: relative;
-            background: #0a1a30;
-            overflow: hidden;
+            background: #0f2040;
         }
-
-        .game-card .card-media img {
+        .game-card .game-media img {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
-
-        .game-card:hover .card-media img {
-            transform: scale(1.08);
+        .game-card .game-info {
+            padding: 14px 16px 16px;
         }
-
-        .game-card .card-media::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(11, 26, 51, 0.5);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: 1;
-        }
-
-        .game-card:hover .card-media::after {
-            opacity: 1;
-        }
-
-        .game-card .card-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.8);
-            background: linear-gradient(135deg, #0d6efd, #4ab8ff);
-            color: #ffffff;
-            padding: 8px 22px;
-            border-radius: 30px;
-            font-weight: 700;
-            font-size: 13px;
-            opacity: 0;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            box-shadow: 0 4px 25px rgba(13, 110, 253, 0.4);
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            z-index: 2;
-            text-transform: uppercase;
-        }
-
-        .game-card:hover .card-play-btn {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
-        }
-
-        .game-card .card-play-btn:hover {
-            transform: translate(-50%, -50%) scale(1.08) !important;
-            box-shadow: 0 8px 40px rgba(74, 184, 255, 0.6);
-        }
-
-        .game-card .card-copy {
-            padding: 12px 16px 16px;
-        }
-
-        .game-card .card-copy span {
-            font-size: 11px;
+        .game-card .game-info .provider {
+            font-size: 12px;
             color: #8aaac8;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-
-        .game-card .card-copy h3 {
-            font-size: 16px;
+        .game-card .game-info h3 {
             color: #ffffff;
-            margin: 3px 0 0;
+            font-size: 16px;
+            margin: 4px 0 8px;
         }
-
-        /* ===== SECTION ===== */
-        .section { padding: 10px 0 50px; }
-        .section.soft { 
-            background: rgba(11, 26, 51, 0.4);
-            backdrop-filter: blur(4px);
+        .game-card .game-info .game-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-
-        .eyebrow {
-            display: inline-block;
-            background: rgba(26, 65, 124, 0.5);
-            backdrop-filter: blur(4px);
-            padding: 4px 16px;
-            border-radius: 20px;
+        .game-card .game-info .game-meta span {
             font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            color: #8aaac8;
+        }
+        .game-card .game-info .game-meta .badge {
+            background: rgba(26, 65, 124, 0.5);
+            padding: 2px 10px;
+            border-radius: 20px;
+            font-size: 11px;
             color: #4ab8ff;
+        }
+        .game-card .play-btn {
+            display: block;
+            text-align: center;
+            padding: 8px;
+            margin: 0 16px 16px;
+            border-radius: 30px;
+            background: linear-gradient(135deg, rgba(13, 110, 253, 0.2), rgba(74, 184, 255, 0.1));
+            border: 1px solid rgba(74, 184, 255, 0.2);
+            color: #4ab8ff;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .game-card .play-btn:hover {
+            background: linear-gradient(135deg, #0d6efd, #4ab8ff);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        /* ===== PROVIDERS ===== */
+        .providers-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+            padding: 16px 0;
+        }
+        .providers-grid .provider-tag {
+            background: rgba(26, 65, 124, 0.3);
+            border: 1px solid rgba(26, 65, 124, 0.3);
+            padding: 6px 18px;
+            border-radius: 30px;
+            color: #8aaac8;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        .providers-grid .provider-tag:hover {
+            border-color: #4ab8ff;
+            color: #4ab8ff;
+        }
+
+        /* ===== INFO BLOCK ===== */
+        .info-block {
+            background: rgba(16, 35, 65, 0.4);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(26, 65, 124, 0.3);
+            border-radius: 16px;
+            padding: 30px;
+            margin: 30px 0 40px;
+        }
+        .info-block h3 {
+            color: #ffffff;
+            font-size: 22px;
             margin-bottom: 12px;
+        }
+        .info-block p {
+            color: #8aaac8;
+            margin-bottom: 12px;
+        }
+        .info-block ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px 20px;
+        }
+        .info-block ul li {
+            color: #d0e4f8;
+            padding: 4px 0;
+        }
+        .info-block ul li:before {
+            content: "✓ ";
+            color: #4ab8ff;
+            font-weight: 700;
         }
 
         /* ===== FOOTER CTA ===== */
@@ -571,7 +464,7 @@
             background: linear-gradient(145deg, rgba(11, 26, 51, 0.8), rgba(15, 40, 71, 0.6));
             border-top: 1px solid rgba(26, 65, 124, 0.3);
             border-bottom: 1px solid rgba(26, 65, 124, 0.3);
-            padding: 40px 0;
+            padding: 50px 0;
         }
         .footer-cta .container {
             display: flex;
@@ -580,8 +473,14 @@
             flex-wrap: wrap;
             gap: 30px;
         }
-        .footer-cta h2 { color: #ffffff; font-size: 26px; }
-        .footer-cta p { color: #8aaac8; max-width: 500px; }
+        .footer-cta h2 {
+            color: #ffffff;
+            font-size: 28px;
+        }
+        .footer-cta p {
+            color: #8aaac8;
+            max-width: 500px;
+        }
 
         /* ===== FOOTER ===== */
         .site-footer {
@@ -595,8 +494,15 @@
             grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
             gap: 30px;
         }
-        .footer-brand p { color: #8aaac8; font-size: 14px; margin: 12px 0; }
-        .footer-trust { display: flex; gap: 12px; }
+        .footer-brand p {
+            color: #8aaac8;
+            font-size: 14px;
+            margin: 12px 0;
+        }
+        .footer-trust {
+            display: flex;
+            gap: 12px;
+        }
         .footer-trust span {
             background: rgba(26, 65, 124, 0.4);
             padding: 2px 12px;
@@ -616,9 +522,9 @@
             color: #8aaac8;
             font-size: 14px;
             padding: 3px 0;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
-        .footer-grid a:hover { color: #4ab8ff; transform: translateX(4px); }
+        .footer-grid a:hover { color: #4ab8ff; }
 
         .footer-bottom {
             border-top: 1px solid rgba(26, 65, 124, 0.3);
@@ -660,13 +566,13 @@
         .mobile-bar a:last-child {
             background: linear-gradient(135deg, #0d6efd, #4ab8ff);
             color: #ffffff;
-            animation: pulse 2s ease-in-out infinite;
         }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 992px) {
             .footer-grid { grid-template-columns: 1fr 1fr; }
-            .game-grid { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+            .game-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+            .info-block ul { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 768px) {
@@ -686,26 +592,29 @@
                 padding-top: 12px;
                 border-top: 1px solid rgba(26, 65, 124, 0.3);
             }
-            .page-header h1 { font-size: 28px; }
+            .filters-wrapper {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .filter-search {
+                margin-left: 0;
+                flex-wrap: wrap;
+            }
+            .filter-search input { flex: 1; }
             .footer-grid { grid-template-columns: 1fr; }
             .mobile-bar { display: flex; }
             .site-footer { padding-bottom: 80px; }
+            .page-header h1 { font-size: 28px; }
             .footer-cta .container { flex-direction: column; text-align: center; }
-            .glow-orb { display: none; }
-            .game-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; }
-            .filter-tabs a { font-size: 12px; padding: 6px 16px; }
+            .game-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 16px; }
         }
 
         @media (max-width: 480px) {
-            .page-header h1 { font-size: 22px; }
-            .game-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-            .game-card .card-copy { padding: 8px 10px 12px; }
-            .game-card .card-copy h3 { font-size: 12px; }
-            .game-card .card-copy span { font-size: 9px; }
-            .game-card .card-play-btn { padding: 4px 12px; font-size: 9px; }
-            .btn.large { padding: 10px 24px; font-size: 14px; }
-            .filter-tabs a { font-size: 10px; padding: 4px 12px; }
-            .filter-tabs { gap: 6px; }
+            .page-header h1 { font-size: 24px; }
+            .game-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .game-card .game-info { padding: 10px 12px 12px; }
+            .game-card .game-info h3 { font-size: 14px; }
+            .game-card .play-btn { margin: 0 12px 12px; font-size: 12px; padding: 6px; }
         }
 
         [hidden] { display: none !important; }
@@ -713,20 +622,12 @@
 </head>
 <body>
 
-    <!-- ===== PARTICLES ===== -->
-    <div class="particles" id="particles"></div>
-
-    <!-- ===== GLOW ORBS ===== -->
-    <div class="glow-orb orb1"></div>
-    <div class="glow-orb orb2"></div>
-    <div class="glow-orb orb3"></div>
-
     <a class="skip" href="#content">К содержанию</a>
 
     <!-- ===== AGE GATE ===== -->
     <div class="age-gate" data-age-gate style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(10,22,40,0.97);backdrop-filter:blur(20px);display:flex;align-items:center;justify-content:center;z-index:1000;">
-        <div class="age-gate-card" style="background:rgba(17,29,53,0.8);backdrop-filter:blur(16px);border:1px solid rgba(26,48,80,0.4);border-radius:24px;padding:40px;max-width:480px;text-align:center;box-shadow:0 12px 60px rgba(0,0,0,0.4);animation:float 4s ease-in-out infinite;">
-            <span style="display:inline-block;background:rgba(26,48,80,0.5);padding:8px 24px;border-radius:40px;font-size:24px;font-weight:800;color:#4ab8ff;animation:pulse 2s ease-in-out infinite;">18+</span>
+        <div class="age-gate-card" style="background:rgba(17,29,53,0.8);backdrop-filter:blur(16px);border:1px solid rgba(26,48,80,0.4);border-radius:24px;padding:40px;max-width:480px;text-align:center;box-shadow:0 12px 60px rgba(0,0,0,0.4);">
+            <span style="display:inline-block;background:rgba(26,48,80,0.5);padding:8px 24px;border-radius:40px;font-size:24px;font-weight:800;color:#4ab8ff;">18+</span>
             <p class="eyebrow" style="margin-top:12px;">Подтверждение возраста</p>
             <h2 style="color:#ffffff;font-size:26px;margin:16px 0 8px;">Вам уже исполнилось 18 лет?</h2>
             <p style="color:#8aaac8;margin-bottom:24px;">Портал содержит информацию об азартных играх и предназначен только для совершеннолетних. Игра не является способом заработка.</p>
@@ -738,7 +639,7 @@
         </div>
     </div>
 
-    <!-- ===== HEADER ===== -->
+    <!-- ===== HEADER (sticky) ===== -->
     <header class="site-header">
         <div class="container header-row">
             <a class="brand" href="index.html">
@@ -778,281 +679,408 @@
     <main id="content">
 
         <!-- ===== PAGE HEADER ===== -->
-        <section class="page-header scroll-animate" data-scroll>
+        <section class="page-header">
             <div class="container">
                 <span class="eyebrow">🎰 Игровой каталог</span>
-                <h1>Игры <span class="highlight">Lucky Bear</span> Казино</h1>
-                <p>Более 3000 игр от ведущих провайдеров. Слоты, live-казино, быстрые игры — выбирайте и выигрывайте!</p>
+                <h1>Более <span class="highlight">3000 игр</span> в Lucky Bear Казино</h1>
+                <p>Слоты, live-казино, рулетка, блэкджек и эксклюзивные игры от топовых провайдеров. Играйте с бонусом 500% на первый депозит и получайте 300 фриспинов!</p>
             </div>
         </section>
 
         <!-- ===== FILTERS ===== -->
-        <div class="container">
-            <div class="filter-tabs scroll-animate" data-scroll>
-                <a href="#" class="active">Все игры</a>
-                <a href="#">Слоты</a>
-                <a href="#">Live-казино</a>
-                <a href="#">Быстрые игры</a>
-                <a href="#">Новинки</a>
-                <a href="#">Популярные</a>
-            </div>
-        </div>
-
-        <!-- ===== GAME GRID ===== -->
-        <section class="section">
+        <section class="filters-section">
             <div class="container">
-                <div class="game-grid stagger-children" data-scroll>
-                    <!-- Game 1 -->
+                <div class="filters-wrapper">
+                    <span class="filter-label"><i class="fas fa-filter"></i> Фильтр:</span>
+                    <button class="filter-btn active" data-filter="all">Все игры</button>
+                    <button class="filter-btn" data-filter="slots">Слоты</button>
+                    <button class="filter-btn" data-filter="live">Live-казино</button>
+                    <button class="filter-btn" data-filter="table">Настольные</button>
+                    <button class="filter-btn" data-filter="new">Новинки</button>
+                    <button class="filter-btn" data-filter="popular">Популярные</button>
+                    <div class="filter-search">
+                        <input type="text" placeholder="Поиск игры..." id="gameSearch">
+                        <button class="btn primary small" id="searchBtn"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CATEGORY: СЛОТЫ ===== -->
+        <section class="category-section">
+            <div class="container">
+                <h2>🎰 Популярные слоты</h2>
+                <p class="subtitle">Лучшие игровые автоматы от Pragmatic Play, Evolution Gaming и других провайдеров</p>
+                <div class="game-grid" data-category="slots">
+                    <!-- Слот 1 -->
                     <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/anubis-wrath.jpg" alt="Anubis Wrath" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Pragmatic Play</span>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/anubis-wrath.jpg" alt="Anubis Wrath" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Pragmatic Play</div>
                                 <h3>Anubis Wrath</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.9</span>
+                                    <span class="badge">Популярный</span>
+                                </div>
                             </div>
                         </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
                     </div>
-
-                    <!-- Game 2 -->
+                    <!-- Слот 2 -->
                     <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/crazy-time.jpg" alt="Crazy Time" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Evolution Gaming</span>
-                                <h3>Crazy Time</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 3 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/aviamasters-2.jpg" alt="Aviamasters 2" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Pragmatic Play</span>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/aviamasters-2.jpg" alt="Aviamasters 2" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Pragmatic Play</div>
                                 <h3>Aviamasters 2</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.8</span>
+                                    <span class="badge">Новинка</span>
+                                </div>
                             </div>
                         </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
                     </div>
-
-                    <!-- Game 4 -->
+                    <!-- Слот 3 -->
                     <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/speed-winner.jpg" alt="Speed Winner" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Evolution Gaming</span>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/speed-winner.jpg" alt="Speed Winner" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Evolution Gaming</div>
                                 <h3>Speed Winner</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.7</span>
+                                    <span class="badge">Топ</span>
+                                </div>
                             </div>
                         </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
                     </div>
-
-                    <!-- Game 5 -->
+                    <!-- Слот 4 -->
                     <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/blackjack-first-person.jpg" alt="Blackjack First Person" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Evolution Gaming</span>
-                                <h3>Blackjack First Person</h3>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/crazy-time.jpg" alt="Crazy Time" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Evolution Gaming</div>
+                                <h3>Crazy Time</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.9</span>
+                                    <span class="badge">Шоу</span>
+                                </div>
                             </div>
                         </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
                     </div>
-
-                    <!-- Game 6 -->
+                    <!-- Слот 5 -->
                     <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/candy-hole.jpg" alt="Candy Hole" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Pragmatic Play</span>
-                                <h3>Candy Hole</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 7 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/falling-pickaxe.jpg" alt="Falling Pickaxe" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>BGaming</span>
-                                <h3>Falling Pickaxe</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 8 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/mines.jpg" alt="Mines" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>BGaming</span>
-                                <h3>Mines</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 9 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/speed-roulette.jpg" alt="Speed Roulette" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Evolution Gaming</span>
-                                <h3>Speed Roulette</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 10 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/tower-rush.jpg" alt="Tower Rush" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Pragmatic Play</span>
-                                <h3>Tower Rush</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 11 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/treasures-of-az.jpg" alt="Treasures of Az" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Pragmatic Play</span>
-                                <h3>Treasures of Az</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 12 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/wild-bounty-sn.jpg" alt="Wild Bounty Showdown" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Pragmatic Play</span>
-                                <h3>Wild Bounty Showdown</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 13 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/tec.jpg" alt="TEC" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>BGaming</span>
-                                <h3>TEC</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 14 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/owdown.jpg" alt="Showdown" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Pragmatic Play</span>
-                                <h3>Showdown</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 15 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/gates-of-olympus.jpg" alt="Gates of Olympus" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Pragmatic Play</span>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/gates-of-olympus.jpg" alt="Gates of Olympus" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Pragmatic Play</div>
                                 <h3>Gates of Olympus</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.8</span>
+                                    <span class="badge">Хит</span>
+                                </div>
                             </div>
                         </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
                     </div>
-
-                    <!-- Game 16 -->
+                    <!-- Слот 6 -->
                     <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/book-of-dead.jpg" alt="Book of Dead" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Play'n GO</span>
-                                <h3>Book of Dead</h3>
-                            </div>
-                        </a>
-                    </div>
-
-                    <!-- Game 17 -->
-                    <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/sweet-bonanza.jpg" alt="Sweet Bonanza" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Pragmatic Play</span>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/sweet-bonanza.jpg" alt="Sweet Bonanza" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Pragmatic Play</div>
                                 <h3>Sweet Bonanza</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.6</span>
+                                    <span class="badge">Сладкий</span>
+                                </div>
                             </div>
                         </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
                     </div>
-
-                    <!-- Game 18 -->
+                    <!-- Слот 7 -->
                     <div class="game-card">
-                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="card-link">
-                            <div class="card-media">
-                                <img src="images/monopoly-live.jpg" alt="Monopoly Live" loading="lazy">
-                                <div class="card-play-btn">Играть</div>
-                            </div>
-                            <div class="card-copy">
-                                <span>Evolution Gaming</span>
-                                <h3>Monopoly Live</h3>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/book-of-dead.jpg" alt="Book of Dead" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Play'n GO</div>
+                                <h3>Book of Dead</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.7</span>
+                                    <span class="badge">Классика</span>
+                                </div>
                             </div>
                         </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
                     </div>
+                    <!-- Слот 8 -->
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/starburst.jpg" alt="Starburst" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">NetEnt</div>
+                                <h3>Starburst</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.5</span>
+                                    <span class="badge">Космос</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CATEGORY: LIVE ===== -->
+        <section class="category-section">
+            <div class="container">
+                <h2>🎥 Live-казино с реальными дилерами</h2>
+                <p class="subtitle">Атмосфера настоящего казино с живыми дилерами и трансляциями в HD-качестве</p>
+                <div class="game-grid" data-category="live">
+                    <!-- Live 1 -->
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/live-roulette.jpg" alt="Live Рулетка" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Evolution Gaming</div>
+                                <h3>Live Рулетка</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.9</span>
+                                    <span class="badge">Популярный</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                    <!-- Live 2 -->
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/live-blackjack.jpg" alt="Live Блэкджек" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Evolution Gaming</div>
+                                <h3>Live Блэкджек</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.8</span>
+                                    <span class="badge">Карты</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                    <!-- Live 3 -->
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/live-baccarat.jpg" alt="Live Баккара" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Evolution Gaming</div>
+                                <h3>Live Баккара</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.7</span>
+                                    <span class="badge">Элитный</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                    <!-- Live 4 -->
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/monopoly-live.jpg" alt="Monopoly Live" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Evolution Gaming</div>
+                                <h3>Monopoly Live</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.9</span>
+                                    <span class="badge">Шоу</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CATEGORY: НАСТОЛЬНЫЕ ===== -->
+        <section class="category-section">
+            <div class="container">
+                <h2>♠️ Настольные игры</h2>
+                <p class="subtitle">Классические карточные игры и рулетка для ценителей стратегии</p>
+                <div class="game-grid" data-category="table">
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/european-roulette.jpg" alt="Европейская рулетка" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">NetEnt</div>
+                                <h3>Европейская рулетка</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.6</span>
+                                    <span class="badge">Классика</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/blackjack-classic.jpg" alt="Классический блэкджек" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Play'n GO</div>
+                                <h3>Классический блэкджек</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.7</span>
+                                    <span class="badge">Популярный</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/texas-holdem.jpg" alt="Техасский Холдем" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Evolution Gaming</div>
+                                <h3>Техасский Холдем</h3>
+                                <div class="game-meta">
+                                    <span>⭐ 4.8</span>
+                                    <span class="badge">Покер</span>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ALL GAMES ===== -->
+        <section class="category-section">
+            <div class="container">
+                <h2>📋 Все игры казино</h2>
+                <p class="subtitle">Полный каталог игр Lucky Bear — более 3000 слотов и live-игр от 50+ провайдеров</p>
+                <div class="game-grid" data-category="all">
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/razor-shark.jpg" alt="Razor Shark" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Push Gaming</div>
+                                <h3>Razor Shark</h3>
+                                <div class="game-meta"><span>⭐ 4.5</span><span class="badge">Океан</span></div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/jammin-jars.jpg" alt="Jammin Jars" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Push Gaming</div>
+                                <h3>Jammin Jars</h3>
+                                <div class="game-meta"><span>⭐ 4.6</span><span class="badge">Фрукты</span></div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/dead-or-alive.jpg" alt="Dead or Alive" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">NetEnt</div>
+                                <h3>Dead or Alive</h3>
+                                <div class="game-meta"><span>⭐ 4.7</span><span class="badge">Вестерн</span></div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/mega-moolah.jpg" alt="Mega Moolah" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Microgaming</div>
+                                <h3>Mega Moolah</h3>
+                                <div class="game-meta"><span>⭐ 4.8</span><span class="badge">Джекпот</span></div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/gonzos-quest.jpg" alt="Gonzo's Quest" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">NetEnt</div>
+                                <h3>Gonzo's Quest</h3>
+                                <div class="game-meta"><span>⭐ 4.7</span><span class="badge">Приключения</span></div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                    <div class="game-card">
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">
+                            <div class="game-media"><img src="images/immortal-romance.jpg" alt="Immortal Romance" loading="lazy"></div>
+                            <div class="game-info">
+                                <div class="provider">Microgaming</div>
+                                <h3>Immortal Romance</h3>
+                                <div class="game-meta"><span>⭐ 4.6</span><span class="badge">Вампиры</span></div>
+                            </div>
+                        </a>
+                        <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored" class="play-btn">Играть</a>
+                    </div>
+                </div>
+
+                <!-- ===== SHOW MORE ===== -->
+                <div style="text-align:center; padding:10px 0 20px;">
+                    <button class="btn ghost" id="showMoreBtn">Показать еще игры <i class="fas fa-chevron-down"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROVIDERS ===== -->
+        <section class="category-section">
+            <div class="container">
+                <h2>🏢 Топ-провайдеры игр</h2>
+                <p class="subtitle">Лучшие разработчики игр для казино — только проверенные бренды</p>
+                <div class="providers-grid">
+                    <span class="provider-tag">Pragmatic Play</span>
+                    <span class="provider-tag">Evolution Gaming</span>
+                    <span class="provider-tag">NetEnt</span>
+                    <span class="provider-tag">Play'n GO</span>
+                    <span class="provider-tag">Microgaming</span>
+                    <span class="provider-tag">Push Gaming</span>
+                    <span class="provider-tag">Yggdrasil</span>
+                    <span class="provider-tag">Quickspin</span>
+                    <span class="provider-tag">Thunderkick</span>
+                    <span class="provider-tag">Betsoft</span>
+                    <span class="provider-tag">Red Tiger</span>
+                    <span class="provider-tag">Blueprint Gaming</span>
+                    <span class="provider-tag">Relax Gaming</span>
+                    <span class="provider-tag">Playtech</span>
+                    <span class="provider-tag">Novomatic</span>
+                    <span class="provider-tag">ELK Studios</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== INFO BLOCK ===== -->
+        <section>
+            <div class="container">
+                <div class="info-block">
+                    <h3>🎯 Почему стоит играть в Lucky Bear Казино?</h3>
+                    <p>Мы собрали лучшие игры от ведущих мировых провайдеров, чтобы каждый игрок нашел развлечение по душе. Наш каталог включает:</p>
+                    <ul>
+                        <li>Более 3000 слотов с разной волатильностью</li>
+                        <li>Live-казино с реальными дилерами 24/7</li>
+                        <li>Прогрессивные джекпоты с призами миллионы рублей</li>
+                        <li>Турниры с призовым фондом до 5 000 000 ₽</li>
+                        <li>Эксклюзивные новинки от топ-провайдеров</li>
+                        <li>Бонусы и фриспины для новых и постоянных игроков</li>
+                        <li>Мобильная версия и приложения для iOS и Android</li>
+                        <li>Быстрый вывод средств на карты и кошельки</li>
+                    </ul>
                 </div>
             </div>
         </section>
@@ -1060,21 +1088,21 @@
     </main>
 
     <!-- ===== CTA ===== -->
-    <section class="footer-cta scroll-animate" data-scroll>
+    <section class="footer-cta">
         <div class="container">
             <div>
                 <span>🎯 Успей забрать!</span>
                 <h2>500% бонус + 300 фриспинов</h2>
                 <p>Только сегодня — увеличьте свой депозит в 5 раз и получите 300 бесплатных вращений!</p>
             </div>
-            <a class="btn primary large pulse" href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">Забрать бонус</a>
+            <a class="btn primary large" href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">Забрать бонус</a>
         </div>
     </section>
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
         <div class="container footer-grid">
-            <div class="footer-brand scroll-animate" data-scroll>
+            <div class="footer-brand">
                 <div style="display:flex; align-items:center; gap:12px;">
                     <img src="images/menu-logo.png" alt="Lucky Bear Казино" style="height:40px; width:auto;">
                     <span style="font-size:20px; font-weight:800; color:#ffffff;">Lucky Bear</span>
@@ -1082,10 +1110,10 @@
                 <p>Русскоязычный сайт Lucky Bear Казино для совершеннолетних пользователей стран СНГ. 500% бонус + 300 фриспинов ждут тебя!</p>
                 <div class="footer-trust"><span>HTTPS</span><span>18+</span><span>Лицензия</span></div>
             </div>
-            <div class="scroll-animate" data-scroll><strong>Информация</strong><a href="about.html">О нас</a><a href="rules.html">Правила</a><a href="faq.html">FAQ</a><a href="contacts.html">Контакты</a></div>
-            <div class="scroll-animate" data-scroll><strong>Игры</strong><a href="games.html">Слоты</a><a href="games.html">Live-казино</a><a href="games.html">Новые игры</a><a href="providers.html">Провайдеры</a></div>
-            <div class="scroll-animate" data-scroll><strong>Бонусы</strong><a href="bonus.html">500% бонус</a><a href="bonus.html">300 фриспинов</a><a href="vip.html">VIP-программа</a><a href="tournaments.html">Турниры</a></div>
-            <div class="scroll-animate" data-scroll><strong>Помощь</strong><a href="payment.html">Пополнение и вывод</a><a href="app.html">Мобильное приложение</a><a href="reviews.html">Отзывы</a><a href="blog.html">Блог</a></div>
+            <div><strong>Информация</strong><a href="about.html">О нас</a><a href="rules.html">Правила</a><a href="faq.html">FAQ</a><a href="contacts.html">Контакты</a></div>
+            <div><strong>Игры</strong><a href="games.html">Слоты</a><a href="games.html">Live-казино</a><a href="games.html">Новые игры</a><a href="providers.html">Провайдеры</a></div>
+            <div><strong>Бонусы</strong><a href="bonus.html">500% бонус</a><a href="bonus.html">300 фриспинов</a><a href="vip.html">VIP-программа</a><a href="tournaments.html">Турниры</a></div>
+            <div><strong>Помощь</strong><a href="payment.html">Пополнение и вывод</a><a href="app.html">Мобильное приложение</a><a href="reviews.html">Отзывы</a><a href="blog.html">Блог</a></div>
         </div>
         <div class="container footer-bottom">
             <span>© 2026 Lucky Bear Казино. Все права защищены.</span>
@@ -1093,70 +1121,126 @@
         </div>
     </footer>
 
-    <!-- ===== MOBILE BAR ===== -->
+    <!-- ===== MOBILE BOTTOM BAR ===== -->
     <div class="mobile-bar">
         <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">Войти</a>
         <a href="https://lb777.xyz/5dsgV7" rel="nofollow sponsored">Забрать бонус</a>
     </div>
 
+    <!-- ===== SCRIPTS ===== -->
     <script>
-        // ===== PARTICLES =====
-        (function createParticles() {
-            const container = document.getElementById('particles');
-            const count = 40;
-            for (let i = 0; i < count; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                const size = 15 + Math.random() * 50;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDuration = 15 + Math.random() * 25 + 's';
-                particle.style.animationDelay = Math.random() * 20 + 's';
-                container.appendChild(particle);
+        (function() {
+            // MOBILE MENU TOGGLE
+            const menuBtn = document.querySelector('[data-menu]');
+            const nav = document.querySelector('[data-nav]');
+            if (menuBtn && nav) {
+                menuBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    nav.classList.toggle('open');
+                    const expanded = nav.classList.contains('open') ? 'true' : 'false';
+                    menuBtn.setAttribute('aria-expanded', expanded);
+                });
             }
-        })();
 
-        // ===== SCROLL ANIMATIONS =====
-        (function initScrollAnimations() {
-            const animatedElements = document.querySelectorAll('[data-scroll]');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+            // AGE GATE
+            const gate = document.querySelector('[data-age-gate]');
+            if (gate) {
+                const acceptBtn = gate.querySelector('[data-age-accept]');
+                const rejectBtn = gate.querySelector('[data-age-reject]');
+                if (acceptBtn) {
+                    acceptBtn.addEventListener('click', function() {
+                        gate.style.display = 'none';
+                        try { localStorage.setItem('age-verified', 'true'); } catch(e) {}
+                    });
+                }
+                if (rejectBtn) {
+                    rejectBtn.addEventListener('click', function() {
+                        window.location.href = 'https://www.google.com';
+                    });
+                }
+                try {
+                    if (localStorage.getItem('age-verified') === 'true') {
+                        gate.style.display = 'none';
+                    }
+                } catch(e) {}
+            }
+
+            // GAME FILTERS (simple show/hide)
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const gameGrids = document.querySelectorAll('.game-grid');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.dataset.filter;
+                    gameGrids.forEach(grid => {
+                        const category = grid.dataset.category;
+                        if (filter === 'all') {
+                            grid.style.display = 'grid';
+                        } else {
+                            grid.style.display = (category === filter) ? 'grid' : 'none';
+                        }
+                    });
+                });
+            });
+
+            // SHOW MORE BUTTON (simulates loading more games)
+            const showMoreBtn = document.getElementById('showMoreBtn');
+            if (showMoreBtn) {
+                showMoreBtn.addEventListener('click', function() {
+                    const allGrid = document.querySelector('.game-grid[data-category="all"]');
+                    if (allGrid) {
+                        // Clone existing cards to simulate more games
+                        const cards = allGrid.querySelectorAll('.game-card');
+                        const cloneCount = 4;
+                        for (let i = 0; i < cloneCount; i++) {
+                            const clone = cards[i % cards.length].cloneNode(true);
+                            // Change title slightly to simulate different game
+                            const title = clone.querySelector('h3');
+                            if (title) {
+                                const names = ['Big Bass Bonanza', 'Wild West Gold', 'Dragon Tiger', 'Spaceman'];
+                                title.textContent = names[i % names.length] + ' ' + (i + 1);
+                            }
+                            allGrid.appendChild(clone);
+                        }
+                        // Update button text or disable after certain amount
+                        this.textContent = 'Показать еще игры 🔄';
+                        setTimeout(() => {
+                            this.textContent = 'Показать еще игры <i class="fas fa-chevron-down"></i>';
+                        }, 2000);
                     }
                 });
-            }, { 
-                threshold: 0.15,
-                rootMargin: '0px 0px -30px 0px'
-            });
-            animatedElements.forEach(el => observer.observe(el));
+            }
+
+            // SEARCH FUNCTIONALITY
+            const searchInput = document.getElementById('gameSearch');
+            const searchBtn = document.getElementById('searchBtn');
+
+            function performSearch() {
+                const query = searchInput.value.toLowerCase().trim();
+                const allCards = document.querySelectorAll('.game-card');
+                allCards.forEach(card => {
+                    const title = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+                    const provider = card.querySelector('.provider')?.textContent?.toLowerCase() || '';
+                    const match = title.includes(query) || provider.includes(query);
+                    card.style.display = match ? 'block' : 'none';
+                });
+                // Reset filters UI
+                filterBtns.forEach(b => b.classList.remove('active'));
+                document.querySelector('.filter-btn[data-filter="all"]')?.classList.add('active');
+            }
+
+            if (searchBtn) {
+                searchBtn.addEventListener('click', performSearch);
+            }
+            if (searchInput) {
+                searchInput.addEventListener('keyup', function(e) {
+                    if (e.key === 'Enter') performSearch();
+                });
+            }
         })();
-
-        // ===== MENU TOGGLE =====
-        document.querySelector('[data-menu]')?.addEventListener('click', function() {
-            document.querySelector('[data-nav]')?.classList.toggle('open');
-        });
-
-        // ===== AGE GATE =====
-        const ageGate = document.querySelector('[data-age-gate]');
-        const accept = document.querySelector('[data-age-accept]');
-        const reject = document.querySelector('[data-age-reject]');
-
-        if (ageGate && !localStorage.getItem('ageVerified')) {
-            ageGate.style.display = 'flex';
-        } else if (ageGate) {
-            ageGate.style.display = 'none';
-        }
-
-        accept?.addEventListener('click', function() {
-            localStorage.setItem('ageVerified', 'true');
-            ageGate.style.display = 'none';
-        });
-
-        reject?.addEventListener('click', function() {
-            document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;min-height:100vh;background:#0a1628;color:#d0e4f8;text-align:center;padding:20px;"><div><h1 style="color:#4ab8ff;font-size:32px;">Доступ запрещен</h1><p style="margin-top:12px;">Сайт предназначен только для лиц старше 18 лет.</p><button onclick="history.back()" style="margin-top:20px;padding:12px 32px;border-radius:30px;background:linear-gradient(135deg,#1a7acc,#4ab8ff);color:#fff;border:none;cursor:pointer;">Вернуться</button></div></div>';
-        });
     </script>
 
 </body>
