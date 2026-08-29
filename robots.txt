@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://luckybear-cas.ru/sitemap.xml
